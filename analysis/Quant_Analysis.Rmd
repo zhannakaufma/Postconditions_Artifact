@@ -1,0 +1,753 @@
+---
+title: "Study 1: quantitative analysis (RQ1 to RQ3)"
+date: "11/16/2026"
+output:
+  pdf_document:
+    toc: yes
+    fig_crop: false
+  html_document:
+    code_folding: hide
+    toc: yes
+    toc_float: yes
+always_allow_html: yes
+---
+  
+```{r setup, include=FALSE}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+if(!require(tidyverse)){install.packages("tidyverse")}
+library(tidyverse)
+if(!require(tidyverse)){install.packages("ggplot2")}
+library(ggplot2)
+if(!require(car)){install.packages("car")}
+library(car)
+if(!require(lme4)){install.packages("lme4")}
+library(lme4)
+if(!require(psych)){install.packages("psych")}
+library(psych)
+if(!require(lavaan)){install.packages("lavaan")}
+library(lavaan)
+if(!require(emmeans)){install.packages("emmeans")}
+library(emmeans)
+if(!require(lmerTest)){install.packages("lmerTest")}
+library(lmerTest)
+if(!require(simr)){install.packages("simr")}
+library(simr)
+```
+
+# Import the data
+```{r}
+# Import the longtable with all results
+lt <- read.csv(file="../data/quant_longtable.csv")
+lt$Programming_Seniority <- as.factor(lt$Programming_Seniority)
+lt$Comment_Type[lt$Comment_Type=="None"] <- "0None"
+lt$Participant.Correct <- lt$Correct_Passfail
+lt$Perceived.Capture <- lt$Capture
+lt$HasComment <- ifelse(lt$Comment_Type == "None", "NoComment", "Comment")
+lt$HasComment <- factor(lt$HasComment, ordered=FALSE)
+lt$Capture <- factor(lt$Capture, ordered = TRUE)         # Likert: 1 < 2 < 3 < ...
+lt$Programming_Seniority <- factor(lt$Programming_Seniority, ordered=TRUE)
+lt$LLM_Use <- factor(lt$LLM_Use, ordered=TRUE)
+lt$Comment_Type <- factor(lt$Comment_Type, ordered=FALSE)
+lt$Python_Knowledge <- factor(lt$Python_Knowledge, ordered=TRUE)
+lt$Python_Use <- factor(lt$Python_Use, ordered=TRUE)
+lt$Assertion_Experience <- factor(lt$Assertion_Experience, ordered=TRUE)
+lt_Correct = lt[lt$Postcondition_Correct == "1",]
+lt_Incorrect = lt[lt$Postcondition_Correct == "0",]
+lt_None = lt[lt$Comment_Type=="None",]
+lt_Exact = lt[lt$Comment_Type=="Exact",]
+lt_Overspecified = lt[lt$Comment_Type=="Overspecified",]
+lt_Underspecified = lt[lt$Comment_Type=="Underspecified",]
+lt_Incorrect = lt[lt$Comment_Type=="Incorrect",]
+```
+
+# Summary of Participants
+```{r}
+
+library(dplyr)
+
+# 1. Extract one row per participant with demographic fields
+demo <- lt %>%
+  distinct(
+    Pid,
+    Age,
+    Is_Developer,
+    Python_Use,
+    Python_Knowledge,
+    LLM_Use,
+    Programming_Seniority,
+    Assertion_Experience,
+    AI_Use
+  )
+
+# ---- PARTICIPANT COUNT ----
+cat("Number of participants:", nrow(demo), "\n\n")
+
+# ---- AGE SUMMARY ----
+age_summary <- demo %>%
+  summarise(
+    n_participants = n(),
+    mean_age       = mean(Age, na.rm = TRUE),
+    median_age     = median(Age, na.rm = TRUE),
+    sd_age         = sd(Age, na.rm = TRUE),
+    min_age        = min(Age, na.rm = TRUE),
+    max_age        = max(Age, na.rm = TRUE)
+  )
+
+cat("Age Summary:\n")
+print(age_summary)
+cat("\n")
+
+# ---- IS_DEVELOPER SUMMARY ----
+isdev_summary <- demo %>%
+  count(Is_Developer) %>%
+  mutate(prop = n / sum(n))
+
+cat("Is_Developer Summary:\n")
+print(isdev_summary)
+cat("\n")
+
+# ---- PYTHON_KNOWLEDGE SUMMARY ----
+python_know_summary <- demo %>%
+  count(Python_Knowledge) %>%
+  mutate(prop = n / sum(n))
+
+cat("Python Knowledge Summary:\n")
+print(python_know_summary)
+cat("\n")
+
+# ---- PYTHON_USE SUMMARY ----
+python_use_summary <- demo %>%
+  count(Python_Use) %>%
+  mutate(prop = n / sum(n))
+
+cat("Python Use Summary:\n")
+print(python_use_summary)
+cat("\n")
+
+# ---- PROGRAMMING_SENIORITY SUMMARY ----
+seniority_summary <- demo %>%
+  count(Programming_Seniority) %>%
+  mutate(prop = n / sum(n))
+
+cat("Programming Seniority Summary:\n")
+print(seniority_summary)
+cat("\n")
+
+# ---- ASSERTION_EXPERIENCE SUMMARY ----
+assertion_experience_summary <- demo %>%
+  count(Assertion_Experience) %>%
+  mutate(prop = n / sum(n))
+
+cat("Assertion Experience Summary:\n")
+print(assertion_experience_summary)
+cat("\n")
+
+# ---- LLM_USE SUMMARY ----
+llm_use_summary <- demo %>%
+  count(LLM_Use) %>%
+  mutate(prop = n / sum(n))
+
+cat("LLM Use Summary:\n")
+print(llm_use_summary)
+cat("\n")
+
+# ---- AI SUMMARY ----
+ai_use_summary <- demo %>%
+  count(AI_Use) %>%
+  mutate(prop = n / sum(n))
+
+cat("AI_Use Summary:\n")
+print(ai_use_summary)
+cat("\n")
+
+# ---- OPTIONAL: COMBINED SUMMARY IN ONE LIST ----
+participant_summary <- list(
+  age = age_summary,
+  is_developer = isdev_summary,
+  python_use = python_use_summary,
+  programming_seniority = seniority_summary,
+  assertion_experience = assertion_experience_summary
+)
+
+# If you want to inspect the combined object:
+cat("Participant Summary:\n")
+print(participant_summary)
+cat("\n")
+
+```
+```{r}
+lt %>%
+  group_by(Postcondition_Correct) %>%
+  summarise(
+    n = n(),
+    accuracy = mean(Participant_Correct),
+    response_rate = mean(Response_Chosen)
+  )
+
+# ---- PYTHON_KNOWLEDGE SUMMARY ----
+python_know_summary <- demo %>%
+  count(Python_Knowledge) %>%
+  mutate(prop = n / sum(n))
+
+cat("Python Knowledge Summary:\n")
+print(python_know_summary)
+cat("\n")
+
+
+```
+
+# Distribution Summary of the Participants
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# Create reverse mappings (from numbers back to labels)
+years_programming_labels <- c(
+  "1" = "< 1",
+  "2" = "1 - 5",
+  "3" = "5 - 10",
+  "4" = "10 - 15",
+  "5" = "> 15"
+)
+
+llm_use_labels <- c(
+  "1" = "Never",
+  "2" = "Rarely",
+  "3" = "Sometimes",
+  "4" = "Often",
+  "5" = "Daily"
+)
+
+know_python_labels <- c(
+  "1" = "Not at all",
+  "2" = "Slightly",
+  "3" = "Moderately",
+  "4" = "Very",
+  "5" = "Extremely"
+)
+
+write_python_labels <- c(
+  "1" = "Never",
+  "2" = "Rarely",
+  "3" = "Sometimes",
+  "4" = "Often",
+  "5" = "Daily"
+)
+
+assertion_experience_labels <- c(
+  "1" = "None",
+  "2" = "Very little",
+  "3" = "Some",
+  "4" = "Moderate",
+  "5" = "A lot"
+)
+
+# Modified function with label mapping
+summarize_and_plot <- function(data, var_name, plot_title, fill_color = "steelblue", label_map = NULL,  filename = NULL) {
+  # Create summary
+  summary_df <- data %>%
+    count(.data[[var_name]]) %>%
+    mutate(prop = n / sum(n))
+  
+  # Print summary
+  cat(paste0(plot_title, " Summary:\n"))
+  print(summary_df)
+  cat("\n")
+  
+  # Create plot
+  p <- ggplot(summary_df, aes(x = factor(.data[[var_name]]), y = n)) +
+    geom_bar(stat = "identity", fill = fill_color) +
+    geom_text(aes(label = paste0(n, " (", round(prop*100, 1), "%)")), 
+              vjust = -0.5, size = 7) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.10))) + 
+    labs(title = "",
+         x = plot_title,
+         y = NULL) +
+    theme_minimal() +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 1, size = 18),  # x-axis labels
+      axis.text.y = element_text(size = 18),                          # y-axis labels
+      axis.title.x = element_text(size = 18,),          # x-axis title
+      axis.title.y = element_blank(),          # y-axis title
+    )
+  
+  # Apply label mapping if provided
+  if (!is.null(label_map)) {
+    p <- p + scale_x_discrete(labels = label_map)
+  }
+  
+  print(p)
+  
+  
+  return(summary_df)
+}
+
+# Use the function with label mappings
+python_know_summary <- summarize_and_plot(
+  demo, "Python_Knowledge", 
+  "Python Knowledge (How well known)", 
+  "navy",
+  know_python_labels,
+  filename = "python_knowledge.pdf"
+)
+
+python_use_summary <- summarize_and_plot(
+  demo, "Python_Use", 
+  "Python Use", 
+  "darkred",
+  write_python_labels,
+  filename = "python_use.pdf"
+)
+
+seniority_summary <- summarize_and_plot(
+  demo, "Programming_Seniority", 
+  "Programming Seniority (Years)", 
+  "darkgreen",
+  years_programming_labels,
+  filename = "programming_seniority.pdf"
+)
+
+assertion_experience_summary <- summarize_and_plot(
+  demo, "Assertion_Experience", 
+  "Assertion Experience", 
+  "darkorchid4",
+  assertion_experience_labels,
+  filename = "assertion_experience.pdf"
+)
+
+llm_use_summary <- summarize_and_plot(
+  demo, "LLM_Use", 
+  "LLM Use", 
+  "darkgoldenrod",
+  llm_use_labels,
+  filename = "llm_use.pdf"
+)
+```
+
+# Postcondition Correctness
+
+A Chisq test shows a significant difference ($\chi^2=46.018$, p<0.001) 
+in participant 
+tendency to accurately identify a correct postcondition versus participant 
+tendency to accurately identify an incorrect postcondition. In the case of 
+correct postconditions, 73.9\% of participant responses accurately identified 
+them as correct. In the case of incorrect postconditions, however, only 
+49.0\% of participant responses accurately identified them as incorrect. 
+Furthermore, neither the correctness of the postcondition nor the accuracy of
+the participant response significantly impacted participant confidence (p > 
+0.1), which was high in all cases (Between 3.98 and 4.14 on a likert scale 
+between 0 and 5). The figure below shows participant confidence 
+distributions in four cases; the cases where the participant succeeds and 
+fails to identify a correct postcondition, and the cases where the 
+participant succeeds and fails to identify an incorrect postcondition. 
+```{r}
+mean(lt$Participant_Correct)
+chisq.test(lt$Participant_Correct, lt$Postcondition_Correct)
+# odds ratio
+fisher.test(lt$Participant_Correct, lt$Postcondition_Correct)
+aggregate(Participant_Correct ~ Postcondition_Correct, data = lt, FUN = mean)
+model1 <- lmer(Accuracy_Confidence ~ Participant_Correct * Postcondition_Correct + (1 | Pid) + (1 | Function_Seen), 
+              data = lt)
+Anova(model1, type=2)
+emmeans(model1, ~ Participant_Correct * Postcondition_Correct)
+```
+
+# Confidence Plotting
+```{r}
+plot_data <- lt %>%
+  group_by(Participant_Correct, Postcondition_Correct, Accuracy_Confidence) %>%
+  summarise(count = n(), .groups = 'drop') %>%
+  group_by(Participant_Correct, Postcondition_Correct) %>%
+  mutate(
+    total = sum(count),
+    percentage = count / total * 100
+  )
+
+annotation_data <- lt %>%
+  group_by(Postcondition_Correct, Participant_Correct) %>%
+  summarise(n = n(), .groups = 'drop') %>%
+  group_by(Postcondition_Correct) %>%
+  mutate(
+    total = sum(n),
+    pct = n / total * 100
+  ) %>%
+  ungroup()
+
+
+plot_data <- plot_data %>%
+  left_join(annotation_data, by = c("Postcondition_Correct", "Participant_Correct")) %>%
+  mutate(
+    condition = paste0(
+      "Postcondition: ", ifelse(Postcondition_Correct == 1, "Correct", "Incorrect"),
+      "\nParticipant: ", ifelse(Participant_Correct == 1, "Correct", "Incorrect"),
+      " (", sprintf("%.1f%%", pct), ")"
+    ),
+       Postcondition_label = ifelse(Postcondition_Correct == 1, "Yes", "No")  # ← Use ifelse instead
+  )
+
+p <- ggplot(plot_data, aes(x = factor(Accuracy_Confidence), y = percentage, fill = factor(Postcondition_label))) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = sprintf("%.1f", percentage)), 
+            vjust = -0.5, size = 4.9) +
+  facet_wrap(~ condition, ncol = 2) +
+  scale_fill_brewer(palette = "Dark2", direction = -1) +
+  labs(
+    title = "Confidence Distribution by Participant and Postcondition Correctness",
+    x = "Participant Confidence",
+    y = "Percentage of Responses (%)",
+    fill = "Postcondition Correct"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        strip.text = element_text(size = 14),      # facet panel titles
+        plot.title = element_text(size = 16, face = "bold"),
+        axis.text = element_text(size = 14),
+        axis.title.x = element_text(size = 14, margin = margin(t = 5)),   # gap above x title
+        axis.title.y = element_text(size = 14, margin = margin(r = 5))) + # gap right of y title
+  scale_y_continuous(expand = expansion(add = c(0, 15)))
+
+p
+
+```
+
+# Timing 
+
+A linear model with participant accuracy and postcondition correctness as 
+predictors and response time as the dependent variable shows a significant 
+effect of participant accuracy on response time (p = 0.014), driven by the 
+interaction effect between participant accuracy and postcondition correctness
+(p = 0.002). When the postcondition is correct, participants take about 
+the same amount of time to respond whether they are accurate or not (103.4 vs.
+108.4 seconds on average). However, when the postcondition is incorrect, there
+is a much larger difference; participants take an average of 123.0 seconds to 
+successfuly identify an incorrect postcondition, versus an average of 97.1 
+seconds when they fail to identify the postcondition as incorrect.
+```{r}
+model1 <- lmer(
+  log(Time_To_Complete) ~ Participant_Correct * Postcondition_Correct + (1 | Pid) + (1 | Function_Seen),
+  data   = lt,
+)
+
+Anova(model1, type=2)
+emmeans(model1, ~ Participant_Correct * Postcondition_Correct, type = "response")
+
+
+lt$predicted <- predict(model1)   # Save the predicted values
+lt$residuals <- residuals(model1) # Save the residual values
+# Keep originals as 0/1 for stats, make display version just for plotting
+lt$interaction_group <- interaction(
+  factor(lt$Participant_Correct,   levels = c(0,1), labels = c("Part: Wrong", "Part: Correct")),
+  factor(lt$Postcondition_Correct, levels = c(0,1), labels = c("Post: Wrong", "Post: Correct")),
+  sep = " & "
+)
+
+ggplot(lt, aes(x = interaction_group, y = log(Time_To_Complete))) +
+  geom_smooth(method = "lm", se = FALSE, color = "lightgrey") +
+  geom_segment(aes(xend = interaction_group, yend = predicted), alpha = .2) +
+  geom_point(aes(color = abs(residuals), size = abs(residuals))) +
+  scale_color_continuous(low = "green", high = "red") +
+  guides(color = "none", size = "none") +
+  geom_point(aes(y = predicted), shape = 1) +
+  theme_bw()
+
+# 2. Check distribution of residuals directly
+hist(residuals(model1), breaks = 30)
+
+# 3. Or density plot
+plot(density(residuals(model1)))
+```
+
+# Complexity
+
+In the full nl2postcond corpus from which our stimuli were drawn, incorrect
+postconditions are more complex than correct ones:
+cyclomatic complexity (means 2.69 vs 2.18), cognitive complexity, Halstead
+difficulty and the Shevrin and Maoz reading-complexity score (all Wilcoxon
+rank-sum p < 0.001, Cliff's delta 0.19 to 0.25). This is a property of
+LLM-generated postconditions, not of our stimulus set: whether our 26
+correct/incorrect pairs are balanced on complexity, and whether complexity
+explains the accuracy effect, is analysed at the postcondition level in
+dataset_contextualization/Postcondition_Balance.Rmd (it is balanced, and it
+does not).
+```{r}
+pool <- read.csv("../data/postcondition_corpora.csv") %>%
+  filter(dataset == "nl2postcond_py", ablation == "SimplePromptNoRef")
+pool$correct <- as.logical(toupper(pool$correct))  
+
+table(pool$correct)
+aggregate(cbind(Cyclomatic, Cognitive, Halstead_Difficulty, SM_Score) ~ correct, 
+          data = pool, FUN = mean)
+
+wilcox.test(Cyclomatic ~ correct, data = pool)
+wilcox.test(Cognitive ~ correct, data = pool)
+wilcox.test(Halstead_Difficulty ~ correct, data = pool)
+wilcox.test(SM_Score ~ correct, data = pool)
+
+```
+
+# Completeness
+
+We only have a completeness ground truth for correct postconditions; these 
+values were derived in previous work~\cite{Endres24} by testing the percent 
+of mutations captured by the assert statement. 
+A Spearman correlation test shows a significant correlation (p < 0.001) 
+between the ground-truth completeness percentage and participants' 
+assessment of postcondition completeness, with a Spearman's rho value of 
+0.18. Additionally, a Wilcoxon rank sum test shows that participants gave 
+significantly (p < 0.001) higher completeness scores to correct 
+postconditions than to incorrect ones (means = 2.66 vs 2.35).
+This may indicate that participants could intuit 
+the worse quality of incorrect postconditions even when they did not identify
+them as incorrect.
+```{r}
+cor.test(lt_Correct$Actual.Capture, lt_Correct$Perceived.Capture)
+
+wilcox.test(Perceived.Capture ~ Postcondition_Correct, data = lt)
+aggregate(Perceived.Capture ~ Postcondition_Correct, data = lt, FUN = mean)
+
+```
+
+# Taxonomy 
+
+We applied the proposed postcondition taxonomy from prior work~\cite{Endres24}
+to investigate whether particular taxonomized patterns were more or less 
+associated with participant correctness. 
+For each construction pattern, we compared accuracy on postconditions that 
+contained it versus accuracy on those that did not. Assertions with arithmetic 
+equalities ($+14.7$ percentage points, 14/52 postconditions) and 
+type checks ($+10.5$ pp, 8/52) had the largest advantages. Assertions with 
+element-property checks ($-11.4$ pp, 8/52) and implications ($-9.6$ pp, 37/52) 
+had the largest disadvantages.
+```{r warning=FALSE}
+patterns <- c("Type_Check", "Format_Check", "Arithmetic_Bounds", "Arithmetic_Equality", "Container_Property",
+              "Element_Property", "Forall_Element_Property", "Implication", "Null_Check")
+postconditions <- unique(lt[, c("Postcondition_Seen", patterns)])
+taxonomy <- data.frame(
+  pattern = patterns,
+  postconditions = colSums(postconditions[, patterns]),
+  accuracy_with = sapply(patterns, function(p) mean(lt$Participant_Correct[lt[[p]] == 1])),
+  accuracy_without = sapply(patterns, function(p) mean(lt$Participant_Correct[lt[[p]] == 0])),
+  accuracy_diff = sapply(patterns, function(p) mean(lt$Participant_Correct[lt[[p]] == 1])) - sapply(patterns, function(p) mean(lt$Participant_Correct[lt[[p]] == 0]))
+)
+taxonomy[order(-taxonomy$accuracy_with), ]
+
+```
+
+
+```{r}
+library(dplyr)
+
+result <- lt %>%
+  group_by(Function_Seen) %>%
+  summarise(mean_A = mean(Participant_Correct, na.rm = TRUE), .groups = "drop") %>%
+  arrange(desc(mean_A))
+
+result
+```
+
+
+# Comment Types
+
+We fit a general linear mixed effects model with participant accuracy as 
+the dependent variable, postcondition correctness and comment type as 
+fixed effects, and individual variability as a random effect. We found 
+that the existance and type of comments did not significantly affect 
+participant accuracy, and this was unaffected by postcondition correctness.
+```{r}
+model <- glmer(
+  Participant_Correct ~ Comment_Type * Postcondition_Correct + (1 | Pid) + (1 | Function_Seen),
+  family = binomial,
+  data = lt,
+)
+
+summary(model)
+
+Anova(model)
+
+# Get odds ratios from fixed effects
+exp(fixef(model))
+
+# Or with confidence intervals
+exp(confint(model, method = "Wald", parm = "beta_"))
+```
+
+# Comment Types Continued
+
+However, when comparing to the existence of exact comments, we find that 
+participants were significantly less accurate when comments were 
+underspecified than when comments were exact (p = 0.037, OR = 0.58).
+Anecdotally, participants were less likely to accurately identify a 
+postcondition as correct or incorrect when the comment was underspecified
+than when there was no comment at all.
+This may indicate that given the existence of comments, the quality of 
+the comment impacts whether it helps or hurts viewer understanding.
+```{r}
+exact_under <- lt
+
+exact_under$Comment_Type <- as.character(exact_under$Comment_Type)
+exact_under$Comment_Type[exact_under$Comment_Type == "0None"] <- "None"
+exact_under$Comment_Type <- factor(exact_under$Comment_Type)
+
+# Refit model
+model_exact_under_1 <- glmer(
+  Participant_Correct ~ Comment_Type + Postcondition_Correct + (1 | Pid) + (1|Function_Seen),
+  family = binomial(link = "logit"),
+  data   = exact_under
+)
+
+summary(model_exact_under_1)
+exp(fixef(model_exact_under_1))
+```
+
+# Comment Types Anecdotal 
+
+```{r}
+lt %>%
+  group_by(Comment_Type) %>%
+  summarise(
+    mean_correct = mean(Participant_Correct),
+    n = n()
+  )
+```
+
+# Comments x Confidence 
+
+We found that underspecified comments were the only comment type where 
+participants reported a significant difference in their confidence 
+(p = 0.0053, emmeans = 3.99, 4.07, 4.10, 4.06, 4.25 for no comment, 
+exact comments, incorect comments, overspecified comments, and 
+underspecified comments, respectively). We did not find significant 
+differences between reported confidence values when participants were 
+correct versus when they were incorrect. This may indicate that confidence
+does not always correlate with understanding, and that poor quality 
+comments may unduly raise perceived understanding.
+```{r}
+library(lme4)
+
+m_base <- lmer(
+  Accuracy_Confidence ~ Comment_Type + (1 | Pid) + (1 | Function_Seen),
+  data   = lt
+)
+
+summary(m_base)
+
+emmeans(m_base, ~ Comment_Type)
+```
+
+# Comment types vs Timing
+
+We fit a linear mixed effects model with log of participant response time as 
+the predicted variable, comment type as a fixed effect, and individual 
+difference and stimulus as random effects, and saw that comment type had a 
+significant impact (p=0.022) on participant response time. Participants took 
+the longest times to respond when looking at exact comments, and the shortest 
+times to respond when there was no comment at all (emmeans = 94.3, 114.5, 105.3, 
+109.6, 111.8 for no comment, exact comment, incorrect comment, overspecified
+comment, and underspecified comment, respectively.)
+
+```{r}
+mean(lt$Time_To_Complete)
+```
+
+```{r}
+library(lme4)
+
+m_base <- lmer(
+  log(Time_To_Complete) ~ Comment_Type + (1 | Pid) + (1 | Function_Seen),
+  data   = lt
+)
+
+summary(m_base)
+
+anova(m_base)
+
+emmeans(m_base, ~ Comment_Type, type = "response" )
+
+```
+
+# Demographics 
+
+We did not find that any of programming seniority, assertion experience, 
+python knowledge, python use frequency, or llm use frequency significantly 
+predicted a participant's tendency to accurately respond to questions about 
+postcondition correctness. This may indicate that programmers of all 
+experience levels would benefit from assistance with parsing postconditions.
+```{r}
+lt_filter_prog_sen = lt[lt$Programming_Seniority<5,]
+model <- glm(
+  Participant_Correct ~ Programming_Seniority + Assertion_Experience + 
+    Python_Use + Python_Knowledge + LLM_Use,
+  data = lt_filter_prog_sen,
+  family = binomial
+)
+
+Anova(model)
+
+model <- glm(
+  Participant_Correct ~ Programming_Seniority,
+  data = lt_filter_prog_sen,
+  family = binomial
+)
+
+Anova(model)
+
+```
+
+# Signal Detection
+We find evidence that identifying that postconditions are incorrect requires 
+more cognitive work than identifying that they are correct, and this likely 
+drives our observed effects; (1) acceptance of incorrect postconditions varied 
+by function (Table II), while a uniform bias would result in similar rates; 
+(2) it took longer to reject an incorrect postcondition than accept it, an 
+asymmetry which did not exist for correct postconditions; (3) think-aloud 
+participants frequently confirmed initial judgements of incorrectness with 
+negative examples (18/29 cases) (Section VI-D). With yes/no responses, signal 
+detection cannot separate a response bias from asymmetric difficulty, since an 
+undetected error looks just like biased acceptance. However, we did fit a signal 
+detection model predicting participant response from postcondition correctness. 
+Participants did distinguish correct from incorrect postconditions (sensitivity 
+d’ = 0.70, p < 0.001), and when unsure they leaned toward calling a 
+postcondition correct (criterion c = −0.37, p < 0.001). The three observations 
+above indicate that this lean is at least partially due to a difference in 
+cognitive difficulty. 
+```{r}
+lt <- lt |>
+  dplyr::mutate(
+    cond = ifelse(Postcondition_Correct == 1, 0.5, -0.5)   
+  )
+
+signal_detection <- glmer(Response_Chosen ~ cond + (1 + cond | Pid) + (1 | Function_Seen),
+               data = lt, family = binomial(link = "probit"))
+
+fe <- fixef(signal_detection)
+c(d_prime = unname(fe["cond"]), criterion_c = unname(-fe["(Intercept)"]))
+```
+
+# Exploratory Docstring Characteristics Analysis 
+
+We fit a generalized linear mixed effects model with participant accuracy as 
+the dependent variable, postcondition correctness, scaled docstring word 
+count, and their interaction as fixed effects, and individual variability 
+and postcondition stimulus 
+as random effects. Interestingly, while we did not find a significant 
+main effect of docstring length,
+there was a significant interaction between docstring word 
+count and postcondition correctness ($p < 0.001$, OR = 0.40). At mean 
+docstring length, participants had 3.38 times the odds of accurately 
+identifying correct postconditions versus incorrect ones. However, this 
+gap became smaller with each SD increase in docstring length.
+```{r}
+model <- glmer(
+  Participant_Correct ~ scale(Docstring_Words) * Postcondition_Correct + 
+    (1 | Pid) + (1 | Postcondition_Seen),
+  family = binomial,
+  data = lt,
+)
+
+summary(model)
+
+Anova(model)
+
+# Get odds ratios from fixed effects
+exp(fixef(model))
+```

@@ -1,0 +1,232 @@
+---
+title: "Study 2: think-aloud analysis (RQ4)"
+date: "11/16/2026"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    code_folding: hide
+    toc: yes
+    toc_float: yes
+always_allow_html: yes
+---
+  
+```{r setup, include=FALSE}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+if(!require(tidyverse)){install.packages("tidyverse")}
+library(tidyverse)
+if(!require(tidyverse)){install.packages("ggplot2")}
+library(ggplot2)
+if(!require(car)){install.packages("car")}
+library(car)
+if(!require(lme4)){install.packages("lme4")}
+library(lme4)
+if(!require(psych)){install.packages("psych")}
+library(psych)
+if(!require(directlabels)){install.packages("directlabels")}
+library(directlabels)
+if(!require(lavaan)){install.packages("lavaan")}
+library(lavaan)
+if(!require(emmeans)){install.packages("emmeans")}
+library(emmeans)
+if(!require(AICcmodavg)){install.packages("AICcmodavg")}
+library(AICcmodavg)
+if(!require(lmerTest)){install.packages("lmerTest")}
+library(lmerTest)
+if(!require(buildmer)){install.packages("buildmer")}
+library(buildmer)
+if(!require(MuMIn)){install.packages("MuMIn")}
+library(MuMIn)
+if(!require(mediation)){install.packages("mediation")}
+library(mediation)
+if(!require(nparLD)){install.packages("nparLD")}
+library(nparLD)
+if(!require(networkD3)){install.packages("networkD3")}
+library(networkD3)
+if(!require(webshot)){install.packages("webshot")}
+library(webshot)
+```
+
+# Import the data
+```{r}
+# Import the longtable with all results
+lt <- read.csv(file="../data/qual_longtable.csv")
+lt$Postcondition <- factor(lt$Postcondition, 
+                            levels = c(0, 1), 
+                            labels = c("incorrect", "correct"), 
+                            ordered = FALSE)
+lt$Assessment <- factor(lt$Assessment, 
+                            levels = c(0, 1), 
+                            labels = c("incorrect", "correct"), 
+                            ordered = FALSE)
+
+```
+
+```{r}
+library(tidyverse)
+library(networkD3)
+
+approach_cols <- c("Pos.Example", "Neg.Example", 
+                   "Clause.Compare", "Logic.Walk", "Intuition")
+
+df_long <- lt %>%
+  pivot_longer(cols = all_of(approach_cols), 
+               names_to = "Approach", 
+               values_to = "Used") %>%
+  filter(Used == 1) %>%
+  mutate(
+    Postcondition.Label = ifelse(Postcondition == "correct", "Postcondition_Correct", "Postcondition_Incorrect"),
+    Assessment.Label    = ifelse(Assessment == "correct", "Perceived_Correct", "Perceived_Incorrect"),
+  )
+# Postcondition Correct
+df_post_correct <- df_long %>% filter(Postcondition == "correct")
+
+# Postcondition Incorrect  
+df_post_incorrect <- df_long %>% filter(Postcondition == "incorrect")
+```
+
+
+```{r}
+make_links <- function(data, from_col, to_col) {
+  data %>%
+    group_by(across(all_of(c(from_col, to_col)))) %>%
+    summarise(value = n_distinct(Pid), .groups = "drop") %>%
+    rename(source = 1, target = 2)
+}
+# One Sankey per ground truth: strategies used (middle) by how the participant assessed the postcondition (right)
+build_sankey <- function(df) {
+  links_2 <- bind_rows(
+    make_links(df, "Approach", "Assessment.Label")
+  ) %>%
+    mutate(link_group = source) %>%
+    mutate(value = value / sum(value) * 100)  # normalize to percentages
+
+  nodes_2 <- data.frame(name = unique(c(links_2$source, links_2$target))) %>%
+    mutate(name = gsub("^fn_|^mm_", "", name))
+
+  approach_order <- c("Clause.Compare", "Logic.Walk", "Pos.Example", "Neg.Example", "Intuition")
+  left_nodes   <- nodes_2$name[nodes_2$name %in% c("Postcondition_Correct", "Postcondition_Incorrect")]
+  middle_nodes <- approach_order
+  right_nodes  <- nodes_2$name[!nodes_2$name %in% c(left_nodes, middle_nodes)]
+  nodes_2 <- data.frame(name = c(left_nodes, middle_nodes, right_nodes))
+
+  node_colors_2 <- nodes_2 %>%
+    mutate(color = case_when(
+      name == "Postcondition_Correct"   ~ "#534AB7",
+      name == "Postcondition_Incorrect" ~ "#CECBF6",
+      name == "Perceived_Correct"       ~ "#1D9E75",
+      name == "Perceived_Incorrect"     ~ "#D85A30",
+      name == "Pos.Example"             ~ "#5DCAA5",
+      name == "Neg.Example"             ~ "#F0997B",
+      name == "Clause.Compare"          ~ "#85B7EB",
+      name == "Logic.Walk"              ~ "#FAC775",
+      name == "Intuition"               ~ "#ED93B1",
+      TRUE                              ~ "#888780"
+    ))
+
+  # Build color scale from display names (spaces), matching what nodes_display will have
+  display_names <- gsub("\\.", " ", gsub("_", " ", node_colors_2$name))
+  color_scale_2 <- paste0(
+    'd3.scaleOrdinal().domain([',
+    paste0('"', display_names, '"', collapse = ','),
+    ']).range([',
+    paste0('"', node_colors_2$color, '"', collapse = ','),
+    '])'
+  )
+
+  links_2$source    <- match(links_2$source, nodes_2$name) - 1
+  links_2$target    <- match(links_2$target, nodes_2$name) - 1
+  links_2$link_group <- gsub("Postcondition ", "", gsub("\\.", " ", gsub("_", " ", links_2$link_group)))
+
+  nodes_display <- nodes_2 %>%
+    mutate(name = gsub("Postcondition ", "", gsub("\\.", " ", gsub("_", " ", name))))
+
+  sankeyNetwork(Links = links_2, Nodes = nodes_display,
+                Source = "source", Target = "target",
+                Value = "value", NodeID = "name",
+                LinkGroup = "link_group",
+                fontSize = 40, nodeWidth = 150,
+                width = 960, height = 500,
+                colourScale = networkD3::JS(color_scale_2),
+                sinksRight = TRUE,
+                iterations = 0) %>%
+    htmlwidgets::onRender("
+      function(el) {
+        d3.selectAll('.node text')
+          .style('font-weight', 'bold')
+          .style('font-size', '0');
+        d3.selectAll('.node').each(function(d) {
+          var nodeHeight = d3.select(this).select('rect').attr('height');
+          var nodeWidth = 150; // match your nodeWidth parameter
+          var parts = d.name.split(' ');
+          var noSplit = ['Pos Example', 'Neg Example'];
+          var parts = d.name.split(' ');
+          if (parts.length > 1 && noSplit.indexOf(d.name) === -1) {
+            d3.select(this).append('text')
+              .attr('x', nodeWidth / 2)
+              .attr('y', nodeHeight / 2)
+              .attr('text-anchor', 'middle')
+              .style('font-size', '25px')
+              .style('font-weight', 'bold')
+              .style('fill', 'black')
+              .style('pointer-events', 'none')
+              .append('tspan')
+                .attr('x', nodeWidth / 2)
+                .attr('dy', '-0.3em')
+                .text(parts[0])
+              .select(function() { return this.parentNode; })
+              .append('tspan')
+                .attr('x', nodeWidth / 2)
+                .attr('dy', '1.2em')
+                .text(parts[1]);
+          } else {
+            d3.select(this).append('text')
+              .attr('x', nodeWidth / 2)
+              .attr('y', nodeHeight / 2)
+              .attr('dy', '0.35em')
+              .attr('text-anchor', 'middle')
+              .style('font-size', '25px')
+              .style('font-weight', 'bold')
+              .style('fill', 'black')
+              .style('pointer-events', 'none')
+              .text(d.name);
+          }
+        });
+
+
+        var forceColors = {
+          'Perceived Correct':  '#1D9E75',
+          'Perceived Incorrect': '#D85A30'
+        };
+        d3.selectAll('.node').each(function(d) {
+          if (forceColors[d.name]) {
+            d3.select(this).select('rect').style('fill', forceColors[d.name]);
+          }
+        });
+      }
+    ")
+}
+sankey_incorrect_percep <- build_sankey(df_post_incorrect)
+sankey_correct_percep   <- build_sankey(df_post_correct)
+```
+
+```{r}
+show_sankey <- function(w) {                                   # live widget in HTML; PhantomJS screenshot in PDF (no browser needed)
+  if (knitr::is_html_output()) return(w)
+  html <- tempfile(fileext = ".html"); png <- tempfile(fileext = ".png")
+  htmlwidgets::saveWidget(w, html, selfcontained = TRUE)
+  webshot::webshot(html, png, vwidth = 960, vheight = 500, delay = 1)
+  knitr::include_graphics(png)
+}
+```
+
+```{r sankey-correct, fig.cap="Ground-truth correct postconditions: strategies used, by how participants assessed them.", out.width="100%"}
+show_sankey(sankey_correct_percep)
+```
+
+```{r sankey-incorrect, fig.cap="Ground-truth incorrect postconditions: strategies used, by how participants assessed them.", out.width="100%"}
+show_sankey(sankey_incorrect_percep)
+```
+
+
+

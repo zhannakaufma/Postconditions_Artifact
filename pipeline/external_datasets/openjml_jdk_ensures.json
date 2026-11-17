@@ -1,0 +1,6918 @@
+[
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(xCoordinate) ? java.lang.Double.isNaN(\\result) : \\result == xCoordinate"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(yCoordinate) ? java.lang.Double.isNaN(\\result) : \\result == yCoordinate"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(x) ? java.lang.Double.isNaN(xCoordinate) : xCoordinate == x"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(y) ? java.lang.Double.isNaN(yCoordinate) : yCoordinate == y"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(p.xCoordinate) ? java.lang.Double.isNaN(xCoordinate) : xCoordinate == p.xCoordinate"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(p.yCoordinate) ? java.lang.Double.isNaN(yCoordinate) : yCoordinate == p.yCoordinate"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\result == squareDistance(x1, y1, x2, y2)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\result == Math.sqrt(squareDistance(x1, y1, x2, y2))"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\result == squareDistance(px, py, xCoordinate, yCoordinate)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\result == squareDistance(pt.xCoordinate, pt.yCoordinate, xCoordinate, yCoordinate)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\result == Math.sqrt(squareDistance(px, py, xCoordinate, yCoordinate))"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\result == Math.sqrt(squareDistance(pt.xCoordinate, pt.yCoordinate, xCoordinate, yCoordinate))"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\result instanceof Point2D"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(xCoordinate) ? java.lang.Double.isNaN(((Point2D) \\result).xCoordinate) : ((Point2D) \\result).xCoordinate == xCoordinate"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(yCoordinate) ? java.lang.Double.isNaN(((Point2D) \\result).yCoordinate) : ((Point2D) \\result).yCoordinate == yCoordinate"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "obj == null ==> !\\result"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "!(obj instanceof Point2D) ==> !\\result"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "(obj instanceof Point2D) && \\result ==> java.lang.Double.compare(xCoordinate, ((Point2D) obj).xCoordinate) == 0 && java.lang.Double.compare(yCoordinate, ((Point2D) obj).yCoordinate) == 0"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "xCoordinate == 0.0"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "yCoordinate == 0.0"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Float.isNaN(x) ? java.lang.Double.isNaN(xCoordinate) : xCoordinate == x"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Float.isNaN(y) ? java.lang.Double.isNaN(yCoordinate) : yCoordinate == y"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Float.isNaN(x) ? java.lang.Double.isNaN(xCoordinate) : xCoordinate == x"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Float.isNaN(y) ? java.lang.Double.isNaN(yCoordinate) : yCoordinate == y"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "xCoordinate == 0.0"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "yCoordinate == 0.0"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(x) ? java.lang.Double.isNaN(xCoordinate) : xCoordinate == x"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "java.lang.Double.isNaN(y) ? java.lang.Double.isNaN(yCoordinate) : yCoordinate == y"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\result == (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)"
+},
+{
+"file": "specs/java/awt/geom/Point2D.jml",
+"postcondition": "\\result == java.lang.Double.isNaN(a) || java.lang.Double.isNaN(b) || java.lang.Double.isNaN(c) || java.lang.Double.isNaN(d)"
+},
+{
+"file": "specs/java/io/BufferedReader.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "\\result == \\old(buf[pos])"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "pos == \\old(pos + 1)"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "isOpen"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "\\not_modified(mark, offset, markPosition, markLimit)"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "valid()"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "\\result == -1"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "pos == mark"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "pos == markPosition + offset"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "readPosition == markPosition"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "mark == \\old(pos)"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "markPosition == \\old(pos - offset)"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "markLimit == markPosition + limit"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "\\result == 0"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "isOpen"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "\\result == \\old(Math.min(n, count - pos))"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "pos == \\old(pos) + \\result"
+},
+{
+"file": "specs/java/io/ByteArrayInputStream.jml",
+"postcondition": "valid()"
+},
+{
+"file": "specs/java/io/ByteArrayOutputStream.jml",
+"postcondition": "isOpen"
+},
+{
+"file": "specs/java/io/ByteArrayOutputStream.jml",
+"postcondition": "isOpen"
+},
+{
+"file": "specs/java/io/CharConversionException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/CharConversionException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/io/Closeable.jml",
+"postcondition": "!isOpen"
+},
+{
+"file": "specs/java/io/Closeable.jml",
+"postcondition": "!isOpen"
+},
+{
+"file": "specs/java/io/EOFException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/EOFException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/io/File.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/io/File.jml",
+"postcondition": "\\nonnullelements(\\result)"
+},
+{
+"file": "specs/java/io/File.jml",
+"postcondition": "\\result == null"
+},
+{
+"file": "specs/java/io/FileInputStream.jml",
+"postcondition": "initialInputStream()"
+},
+{
+"file": "specs/java/io/FileInputStream.jml",
+"postcondition": "initialInputStream()"
+},
+{
+"file": "specs/java/io/FileInputStream.jml",
+"postcondition": "initialInputStream()"
+},
+{
+"file": "specs/java/io/FileNotFoundException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/FileNotFoundException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/io/FileOutputStream.jml",
+"postcondition": "!wasClosed && isOpen && outputBytes.length == 0 && this.append_flag == false && fd == fdObj"
+},
+{
+"file": "specs/java/io/FilterInputStream.jml",
+"postcondition": "initialInputStream()"
+},
+{
+"file": "specs/java/io/FilterOutputStream.jml",
+"postcondition": "underlyingStream == out"
+},
+{
+"file": "specs/java/io/IOException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/IOException.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/io/IOException.jml",
+"postcondition": "standardThrowable(cause)"
+},
+{
+"file": "specs/java/io/IOException.jml",
+"postcondition": "standardThrowable(message, cause)"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "\\fresh(\\result) && \\result.initialInputStream() && \\result.inputBytes.length == 0"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "!isOpen"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "\\result == -1"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "\\not_modified(markPosition, markLimit)"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "isOpen"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "\\result == inputBytes[\\old(readPosition)]"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "readPosition == \\old(readPosition + 1)"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "0<=\\result<=255"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "markPosition == \\old(readPosition)"
+},
+{
+"file": "specs/java/io/InputStream.jml",
+"postcondition": "markLimit == markPosition + readlimit"
+},
+{
+"file": "specs/java/io/InterruptedIOException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/InterruptedIOException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/io/InvalidClassException.jml",
+"postcondition": "standardThrowable(reason)"
+},
+{
+"file": "specs/java/io/InvalidClassException.jml",
+"postcondition": "standardThrowable(reason)"
+},
+{
+"file": "specs/java/io/InvalidClassException.jml",
+"postcondition": "this.classname == classname"
+},
+{
+"file": "specs/java/io/NotActiveException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/NotActiveException.jml",
+"postcondition": "standardThrowable(reason)"
+},
+{
+"file": "specs/java/io/NotSerializableException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/NotSerializableException.jml",
+"postcondition": "standardThrowable(classname)"
+},
+{
+"file": "specs/java/io/ObjectStreamException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/ObjectStreamException.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/io/OptionalDataException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/OptionalDataException.jml",
+"postcondition": "length == len"
+},
+{
+"file": "specs/java/io/OptionalDataException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/OptionalDataException.jml",
+"postcondition": "eof == end"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.isEmpty()"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "!endsInNewLine"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "out.isOpen ==> isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "underlyingStream == out"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.isEmpty()"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "!endsInNewLine"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "out.isOpen ==> isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "underlyingStream == out"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText == \\old(outputText) + CharSequence.eol.chars"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "error"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "error"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "\\result == error"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "(outputText == \\old(outputText) + c) && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText == \\old(outputText) + x + CharSequence.eol.chars"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine & isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "x != null ==> outputText == \\old(outputText) + x.chars + CharSequence.eol.chars"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "s != null ==> outputText == \\old(outputText) + s.chars"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "(s != null && \\old(outputText).isEmpty()) ==> outputText == s.chars"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText == (obj != null ? (\\old(outputText) + obj.modelString + CharSequence.eol.chars) : (\\old(outputText) + \"null\".chars + CharSequence.eol.chars))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText == (obj != null ? (\\old(outputText) + obj.modelString) : (\\old(outputText) + \"null\".chars))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "error"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "endsInNewLine && isOpen"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "outputText.startsWith(\\old(outputText))"
+},
+{
+"file": "specs/java/io/PrintStream.jml",
+"postcondition": "error"
+},
+{
+"file": "specs/java/io/StreamCorruptedException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/StreamCorruptedException.jml",
+"postcondition": "standardThrowable(reason)"
+},
+{
+"file": "specs/java/io/SyncFailedException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/io/UTFDataFormatException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/UTFDataFormatException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/io/UnsupportedEncodingException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/io/UnsupportedEncodingException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/io/WriteAbortedException.jml",
+"postcondition": "standardThrowable(s, ex)"
+},
+{
+"file": "specs/java/lang/AbstractMethodError.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/AbstractMethodError.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "chars.length == 0"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "chars.length == 0"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "capacity >= size"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "CharSequence.equal(chars, srcBegin, dst, dstBegin, srcEnd - srcBegin)"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "chars == chars.put(index, ch)"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "chars == \\old(chars).remove(index)"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "chars.length == \\old(chars.length - 1)"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "chars == \\old(this.chars).insert(offset, c)"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "chars == \\old(chars.substring(0, offset) + str.chars + chars.tail(offset))"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "chars.length == \\old(chars.length)"
+},
+{
+"file": "specs/java/lang/AbstractStringBuilder.jml",
+"postcondition": "(\\forall int i; 0<=i<chars.length; \\old(chars[i]) == chars[chars.length - 1 - i])"
+},
+{
+"file": "specs/java/lang/ArithmeticException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/ArithmeticException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/ArrayIndexOutOfBoundsException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/ArrayIndexOutOfBoundsException.jml",
+"postcondition": "standardThrowableUnspecifiedMessage()"
+},
+{
+"file": "specs/java/lang/ArrayIndexOutOfBoundsException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/ArrayStoreException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/ArrayStoreException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/AssertionError.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/AssertionError.jml",
+"postcondition": "standardThrowableUnspecifiedMessage()"
+},
+{
+"file": "specs/java/lang/AssertionError.jml",
+"postcondition": "standardThrowableUnspecifiedMessage()"
+},
+{
+"file": "specs/java/lang/AssertionError.jml",
+"postcondition": "standardThrowableUnspecifiedMessage()"
+},
+{
+"file": "specs/java/lang/AssertionError.jml",
+"postcondition": "standardThrowableUnspecifiedMessage()"
+},
+{
+"file": "specs/java/lang/AssertionError.jml",
+"postcondition": "standardThrowableUnspecifiedMessage()"
+},
+{
+"file": "specs/java/lang/AssertionError.jml",
+"postcondition": "standardThrowableUnspecifiedMessage()"
+},
+{
+"file": "specs/java/lang/AssertionError.jml",
+"postcondition": "standardThrowableUnspecifiedMessage()"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "\\result == theBoolean"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "\\result != null && \\result.booleanValue() == b"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "\\result == (b ? TRUE : FALSE)"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "\\result == (decode(s) ? TRUE : FALSE)"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "decode(\\result) == b"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "\\result == (canonicalString(b))"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "String.isInterned(\\result)"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "\\result <==> (obj != null && (obj instanceof Boolean) && booleanValue() == ((Boolean) obj).booleanValue())"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "(b == bb) ==> \\result == 0"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "(b && !bb) ==> \\result > 0"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "(!b && bb) ==> \\result < 0"
+},
+{
+"file": "specs/java/lang/Boolean.jml",
+"postcondition": "\\result <==> (name != null && decode(System.getProperty(name)))"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "theByte == value"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == theByte"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == (short) theByte"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == (int) theByte"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == (long) theByte"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == (float) theByte"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == (double) theByte"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result.theByte == b"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == (x >= 0 ? x : x + 256)"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == (x >= 0 ? x : x + 256)"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == (hi >= 0 ? hi : hi + 256) * 256 + (lo >= 0 ? lo : lo + 256)"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "\\result == (byte) (i < 128 ? i : i - 256)"
+},
+{
+"file": "specs/java/lang/Byte.jml",
+"postcondition": "(byte) i == (byte) (i < 128 ? i : i - 256)"
+},
+{
+"file": "specs/java/lang/CharSequence.jml",
+"postcondition": "\\result != null && \\result.chars == chars"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "theCharacter == value"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result.theCharacter == c"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result.chars.length == 1"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result.chars[0] == theCharacter"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result.chars.length == 1"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result.chars[0] == c"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> getType(ch) == LOWERCASE_LETTER"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> getType(ch) == UPPERCASE_LETTER"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> getType(ch) == TITLECASE_LETTER"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> getType(ch) != UNASSIGNED"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> getType(ch) == UPPERCASE_LETTER || getType(ch) == LOWERCASE_LETTER || getType(ch) == TITLECASE_LETTER || getType(ch) == MODIFIER_LETTER || getType(ch) == OTHER_LETTER"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> isDigit(ch) || isLetter(ch)"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> isJavaIdentifierStart(ch)"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> isJavaIdentifierPart(ch)"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> isLetter(ch) || getType(ch) == CURRENCY_SYMBOL || getType(ch) == CONNECTOR_PUNCTUATION"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> isJavaIdentifierStart(ch) || isDigit(ch) || getType(ch) == LETTER_NUMBER || getType(ch) == COMBINING_SPACING_MARK || getType(ch) == NON_SPACING_MARK || isIdentifierIgnorable(ch)"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> isLetter(ch)"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> isLetter(ch) || getType(ch) == CONNECTOR_PUNCTUATION || isDigit(ch) || getType(ch) == LETTER_NUMBER || getType(ch) == COMBINING_SPACING_MARK || getType(ch) == NON_SPACING_MARK || isIdentifierIgnorable(ch)"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> ('\\u0000' <= ch && ch <= '\\u0008') || ('\\u000e' <= ch && ch <= '\\u001b') || ('\\u007F' <= ch && ch <= '\\u009F') || ('\\u200C' <= ch && ch <= '\\u200F') || ('\\u200A' <= ch && ch <= '\\u200E') || ('\\u206A' <= ch && ch <= '\\u206F') || ch == '\\uFEFF'"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> ch == '\\t' || ch == '\\n' || ch == '\\f' || ch == '\\r' || ch == ' '"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> getType(ch) == SPACE_SEPARATOR || getType(ch) == LINE_SEPARATOR || getType(ch) == PARAGRAPH_SEPARATOR"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> (getType(ch) == SPACE_SEPARATOR && ch != '\\u00A0' && ch != '\\uFEFF') || getType(ch) == LINE_SEPARATOR || getType(ch) == PARAGRAPH_SEPARATOR || ch == '\\r' || ch == '\\n' || ch == '\\u0009' || ch == '\\u000B' || ch == '\\u000C' || ch == '\\u001C' || ch == '\\u001D' || ch == '\\u001E' || ch == '\\u001F'"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "\\result <==> getType(ch) == CONTROL"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "(int) this == (int) anotherCharacter ==> \\result == 0"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "(int) this > (int) anotherCharacter ==> \\result > 0"
+},
+{
+"file": "specs/java/lang/Character.jml",
+"postcondition": "(int) this < (int) anotherCharacter ==> \\result < 0"
+},
+{
+"file": "specs/java/lang/Class.jml",
+"postcondition": "\\result == _isInterface"
+},
+{
+"file": "specs/java/lang/Class.jml",
+"postcondition": "\\result <==> (this == int.class || this == short.class || this == long.class || this == float.class || this == double.class || this == char.class || this == boolean.class || this == byte.class || this == void.class)"
+},
+{
+"file": "specs/java/lang/Class.jml",
+"postcondition": "\\result == _getName"
+},
+{
+"file": "specs/java/lang/Class.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Class.jml",
+"postcondition": "\\nonnullelements(\\result)"
+},
+{
+"file": "specs/java/lang/Class.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Class.jml",
+"postcondition": "\\nonnullelements(\\result)"
+},
+{
+"file": "specs/java/lang/Class.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Class.jml",
+"postcondition": "\\nonnullelements(\\result)"
+},
+{
+"file": "specs/java/lang/ClassCastException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/ClassCastException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/ClassNotFoundException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/ClassNotFoundException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/CloneNotSupportedException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/CloneNotSupportedException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result.length() > 0"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "parseable(\\result) && identical(d, parseDouble(\\result))"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "isNaN(d) <==> \\result.equals(\"NaN\")"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "(d == POSITIVE_INFINITY) <==> \\result.equals(\"Infinity\")"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "(d == NEGATIVE_INFINITY) <==> \\result.equals(\"-Infinity\")"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "isPositiveZero(d) <==> \\result.equals(\"0x0.0p0\")"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "isNegativeZero(d) <==> \\result.equals(\"-0x0.0p0\")"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "(\\result.charAt(0) == '-') <==> (d < 0 || isNegativeZero(d))"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "identical(\\result.theDouble, d)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == (!isFinite(v) && !isInfinite(v))"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result <==> (v == POSITIVE_INFINITY || v == NEGATIVE_INFINITY)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "identical(theDouble, value)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == Double.isNaN(theDouble)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == Double.isInfinite(theDouble)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == (byte) theDouble"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == (short) theDouble"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == (int) theDouble"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == (long) theDouble"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "Float.identical(\\result, (float) theDouble)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "identical(\\result, theDouble)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == hashCode(theDouble)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == identical(theDouble, ((Double) obj).doubleValue())"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == 0"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result > 0"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result < 0"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result > 0"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result < 0"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result < 0"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == 0"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result > 0"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "identical(\\result, a + b)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == compareTo((Double) o)"
+},
+{
+"file": "specs/java/lang/Double.jml",
+"postcondition": "\\result == (Double.compare(a, b) == 0)"
+},
+{
+"file": "specs/java/lang/Enum.jml",
+"postcondition": "this.name == name"
+},
+{
+"file": "specs/java/lang/Enum.jml",
+"postcondition": "this.ordinal == ordinal"
+},
+{
+"file": "specs/java/lang/Enum.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Enum.jml",
+"postcondition": "\\result.name().equals(name)"
+},
+{
+"file": "specs/java/lang/Enum.jml",
+"postcondition": "\\result.getClass() == enumClass"
+},
+{
+"file": "specs/java/lang/Error.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/Error.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/lang/Error.jml",
+"postcondition": "standardThrowable(message, cause)"
+},
+{
+"file": "specs/java/lang/Error.jml",
+"postcondition": "standardThrowable(null, cause)"
+},
+{
+"file": "specs/java/lang/Exception.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/Exception.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/lang/Exception.jml",
+"postcondition": "standardThrowable(null, cause)"
+},
+{
+"file": "specs/java/lang/Exception.jml",
+"postcondition": "standardThrowable(message, cause)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result.length() > 0"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "parseable(\\result) && identical(f, parseFloat(\\result))"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "isNaN(f) <==> \\result.equals(\"NaN\")"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "(f == POSITIVE_INFINITY) <==> \\result.equals(\"Infinity\")"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "(f == NEGATIVE_INFINITY) <==> \\result.equals(\"-Infinity\")"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "isPositiveZero(f) <==> \\result.equals(\"0x0.0p0\")"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "isNegativeZero(f) <==> \\result.equals(\"-0x0.0p0\")"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "(\\result.charAt(0) == '-') <==> (f < 0 || isNegativeZero(f))"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "identical(\\result.theFloat, f)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result ==> !isFinite(v) && !isInfinite(v)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == (v == POSITIVE_INFINITY | v == NEGATIVE_INFINITY)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "identical(theFloat, value)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "identical(theFloat, (float) value)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == Float.isNaN(theFloat)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == Float.isInfinite(theFloat)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == (byte) theFloat"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == (short) theFloat"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == (int) theFloat"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == (long) theFloat"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "identical(theFloat, \\result)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "Double.identical((double) theFloat, \\result)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == floatToIntBits(theFloat)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == floatToIntBits(value)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == identical(theFloat, ((Float) obj).floatValue())"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == 0"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result < 0"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result > 0"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result > 0"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result < 0"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result < 0"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == 0"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result > 0"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "\\result == compareTo((Float) o)"
+},
+{
+"file": "specs/java/lang/Float.jml",
+"postcondition": "identical(\\result, a + b)"
+},
+{
+"file": "specs/java/lang/IllegalAccessException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/IllegalAccessException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/IllegalArgumentException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/IllegalArgumentException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/IllegalMonitorStateException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/IllegalMonitorStateException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/IllegalStateException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/IllegalStateException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/IllegalStateException.jml",
+"postcondition": "cause != null ==> standardThrowable(cause)"
+},
+{
+"file": "specs/java/lang/IllegalStateException.jml",
+"postcondition": "cause == null ==> standardThrowable()"
+},
+{
+"file": "specs/java/lang/IllegalStateException.jml",
+"postcondition": "cause != null ==> standardThrowable(message, cause)"
+},
+{
+"file": "specs/java/lang/IllegalStateException.jml",
+"postcondition": "cause == null ==> standardThrowable(message)"
+},
+{
+"file": "specs/java/lang/IllegalThreadStateException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/IllegalThreadStateException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/IndexOutOfBoundsException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/IndexOutOfBoundsException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/InstantiationException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/InstantiationException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "parseable(\\result, radix)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "i == parseInt(\\result, radix)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "parseable(\\result, 10)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "i == parseInt(\\result, 10)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "i == 0 ==> \\result.length() == 1"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "i > 0 ==> \\result.length() >= 1"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "i < 0 ==> \\result.length() >= 2"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "i == 0 ==> String.equals(\\result, \"0\")"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "radix >= 10 ==> \\result.length() <= 11"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "1<=\\result.length()<=8"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "parseable(\\result, 16)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.chars == \\string.of(i, 16)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "parseInt(\\result, 16) == i"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "Long.parseable(\\result, 16)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "(int) Long.parseLong(\\result, 16) == i"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.length() >= 1"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "parseable(\\result, 8)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.chars == \\string.of(i, 8)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "parseInt(\\result, 8) == i"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "Long.parseable(\\result, 8)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "(int) Long.parseLong(\\result, 8) == i"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.length() >= 1"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "parseable(\\result, 2)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.chars == \\string.of(i, 2)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "parseInt(\\result, 2) == i"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "Long.parseable(\\result, 2)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "(int) Long.parseLong(\\result, 2) == i"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.chars == \\string.of(i, 10)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result == parseInt(s, 10)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.intValue() == parseInt(s, radix)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\typeof(\\result) == \\type(Integer)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.intValue() == parseInt(s, 10)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\typeof(\\result) == \\type(Integer)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.intValue() == i"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\typeof(\\result) == \\type(Integer)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "theInteger == value"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "intValue() == parseInt(s)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "parseable(\\result, 10)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "Integer.parseInt(\\result, 10) == intValue()"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result.chars == \\string.of(intValue(), 10)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result == 0"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result == -1"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result == 1"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result == compareTo((Integer) o)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result == (a > b ? a : b)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result == (a < b ? a : b)"
+},
+{
+"file": "specs/java/lang/Integer.jml",
+"postcondition": "\\result == (i > 0 ? 1 : i == 0 ? 0 : -1)"
+},
+{
+"file": "specs/java/lang/InternalError.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/InternalError.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/lang/InterruptedException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/InterruptedException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "parseable(\\result, radix)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "i == parseLong(\\result, radix)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "parseable(\\result, 10)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "i == parseLong(\\result, 10)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "i == 0 ==> \\result.length() == 1"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "i > 0 ==> \\result.length() >= 1"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "i < 0 ==> \\result.length() >= 2"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "i == 0 ==> \\result.equals(\"0\")"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result.longValue() == parseLong(s, radix)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result.longValue() == parseLong(s, 10)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result.longValue() == l"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "theLong == value"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "theLong == parseLong(s)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "parseable(\\result, 10)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "Long.parseLong(\\result, 10) == longValue()"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result == (int) (this.longValue() ^ (this.longValue() >>> 32))"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result == 0"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result == -1"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result == 1"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result == compareTo((Long) o)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result <==> Number.parseable(s, r, Long.SIZE)"
+},
+{
+"file": "specs/java/lang/Long.jml",
+"postcondition": "\\result <==> decodable(nm, Long.SIZE)"
+},
+{
+"file": "specs/java/lang/Math.jml",
+"postcondition": "Double.isNaN(angdeg) <==> Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/lang/Math.jml",
+"postcondition": "Double.isNaN(angrad) <==> Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/lang/Math.jml",
+"postcondition": "0.0 <= \\result && \\result < 1.0"
+},
+{
+"file": "specs/java/lang/Math.jml",
+"postcondition": "\\result == (0 <= a ? a : a == Integer.MIN_VALUE ? Integer.MIN_VALUE : -a)"
+},
+{
+"file": "specs/java/lang/Math.jml",
+"postcondition": "\\result == (0 <= a ? a : a == Long.MIN_VALUE ? Long.MIN_VALUE : -a)"
+},
+{
+"file": "specs/java/lang/Math.jml",
+"postcondition": "\\result == ((sign < 0 || Double.isNegativeZero(sign)) ? -abs(magnitude) : abs(magnitude))"
+},
+{
+"file": "specs/java/lang/Math.jml",
+"postcondition": "(\\result < 0 || Double.isNegativeZero(\\result)) <==> (sign < 0 || Double.isNegativeZero(sign))"
+},
+{
+"file": "specs/java/lang/Math.jml",
+"postcondition": "Double.isNaN(d) ? Double.isNaN(\\result) : \\result == nextAfter(d, Double.POSITIVE_INFINITY)"
+},
+{
+"file": "specs/java/lang/Math.jml",
+"postcondition": "Float.isNaN(f) ? Float.isNaN(\\result) : \\result == nextAfter(f, Float.POSITIVE_INFINITY)"
+},
+{
+"file": "specs/java/lang/NegativeArraySizeException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/NegativeArraySizeException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/NoSuchFieldException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/NoSuchFieldException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/NoSuchMethodException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/NoSuchMethodException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/NullPointerException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/NullPointerException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/NumberFormatException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/NumberFormatException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/Object.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Object.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Runnable.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Runtime.jml",
+"postcondition": "\\result == currentRuntime"
+},
+{
+"file": "specs/java/lang/Runtime.jml",
+"postcondition": "currentRuntime == this"
+},
+{
+"file": "specs/java/lang/Runtime.jml",
+"postcondition": "false"
+},
+{
+"file": "specs/java/lang/Runtime.jml",
+"postcondition": "false"
+},
+{
+"file": "specs/java/lang/RuntimeException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/RuntimeException.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/lang/RuntimeException.jml",
+"postcondition": "standardThrowable(message, cause)"
+},
+{
+"file": "specs/java/lang/RuntimeException.jml",
+"postcondition": "standardThrowable(cause)"
+},
+{
+"file": "specs/java/lang/RuntimeException.jml",
+"postcondition": "standardThrowable(message, cause, enableSuppression, writableStackTrace)"
+},
+{
+"file": "specs/java/lang/SecurityException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/SecurityException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/Short.jml",
+"postcondition": "theShort == value"
+},
+{
+"file": "specs/java/lang/Short.jml",
+"postcondition": "\\result.theShort == s"
+},
+{
+"file": "specs/java/lang/Short.jml",
+"postcondition": "\\result == (theShort == ((Short) obj).shortValue())"
+},
+{
+"file": "specs/java/lang/Short.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/lang/Short.jml",
+"postcondition": "\\result == (i < 0 ? 0x10000 + i : i)"
+},
+{
+"file": "specs/java/lang/Short.jml",
+"postcondition": "\\result == (b0 * 256 + Byte.toUnsignedInt(b1))"
+},
+{
+"file": "specs/java/lang/Short.jml",
+"postcondition": "0 <= toUnsignedInt(i)"
+},
+{
+"file": "specs/java/lang/Short.jml",
+"postcondition": "toUnsignedInt(i) <= 65535"
+},
+{
+"file": "specs/java/lang/Short.jml",
+"postcondition": "(i & 0xffff) == toUnsignedInt(i)"
+},
+{
+"file": "specs/java/lang/StrictMath.jml",
+"postcondition": "Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/lang/StrictMath.jml",
+"postcondition": "\\result == 1.0"
+},
+{
+"file": "specs/java/lang/StrictMath.jml",
+"postcondition": "!Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/lang/StrictMath.jml",
+"postcondition": "Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/lang/StrictMath.jml",
+"postcondition": "!Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/lang/StrictMath.jml",
+"postcondition": "Double.isNaN(\\result)"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "this.chars.length == 0"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "this.chars.length == 0"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "this.chars.equals(str)"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "chars == \\old(chars) + sb.chars"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "chars == \\old(chars) + \"null\".chars"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "\\result == chars[index]"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "\\result == chars.length"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "capacity() >= minimumCapacity"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "chars.equals(\\old(chars.substring(0, offset) + c + chars.tail(offset)))"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/lang/StringBuffer.jml",
+"postcondition": "\\result.chars == this.chars"
+},
+{
+"file": "specs/java/lang/StringIndexOutOfBoundsException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/StringIndexOutOfBoundsException.jml",
+"postcondition": "standardThrowableUnspecifiedMessage()"
+},
+{
+"file": "specs/java/lang/StringIndexOutOfBoundsException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/lang/System.jml",
+"postcondition": "System.out == out"
+},
+{
+"file": "specs/java/lang/System.jml",
+"postcondition": "System.err == err"
+},
+{
+"file": "specs/java/lang/System.jml",
+"postcondition": "time >= \\old(time)"
+},
+{
+"file": "specs/java/lang/System.jml",
+"postcondition": "time == nexttime"
+},
+{
+"file": "specs/java/lang/System.jml",
+"postcondition": "\\result == time"
+},
+{
+"file": "specs/java/lang/System.jml",
+"postcondition": "\\result >= 0"
+},
+{
+"file": "specs/java/lang/System.jml",
+"postcondition": "\\result == systemProperties"
+},
+{
+"file": "specs/java/lang/System.jml",
+"postcondition": "nanoTime - \\old(nanoTime) >= 0"
+},
+{
+"file": "specs/java/lang/System.jml",
+"postcondition": "\\result == nanoTime"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "\\result == !dead"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "!isAlive()"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "_isDaemon == on"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "_isDaemon == \\result"
+},
+{
+"file": "specs/java/lang/Thread.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/lang/UnsupportedOperationException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/UnsupportedOperationException.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/lang/VirtualMachineError.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/VirtualMachineError.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/lang/reflect/Array.jml",
+"postcondition": "\\erasure(\\elemtype(\\typeof(\\result))) == cls"
+},
+{
+"file": "specs/java/lang/reflect/Constructor.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/reflect/Constructor.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/reflect/Constructor.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/reflect/Constructor.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/reflect/InvocationTargetException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/lang/reflect/InvocationTargetException.jml",
+"postcondition": "standardThrowable(target)"
+},
+{
+"file": "specs/java/lang/reflect/InvocationTargetException.jml",
+"postcondition": "standardThrowable(s, target)"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "\\result == returntype"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "getReturnType() == boolean.class ==> \\result instanceof Boolean"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "getReturnType() == byte.class ==> \\result instanceof Byte"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "getReturnType() == char.class ==> \\result instanceof Character"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "getReturnType() == int.class ==> \\result instanceof Integer"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "getReturnType() == long.class ==> \\result instanceof Long"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "getReturnType() == short.class ==> \\result instanceof Short"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "getReturnType() == double.class ==> \\result instanceof Double"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "getReturnType() == float.class ==> \\result instanceof Float"
+},
+{
+"file": "specs/java/lang/reflect/Method.jml",
+"postcondition": "getReturnType() == void.class ==> \\result == null"
+},
+{
+"file": "specs/java/lang/reflect/UndeclaredThrowableException.jml",
+"postcondition": "\\result == getCause()"
+},
+{
+"file": "specs/java/lang/reflect/UndeclaredThrowableException.jml",
+"postcondition": "standardThrowable(null, undeclaredThrowable)"
+},
+{
+"file": "specs/java/lang/reflect/UndeclaredThrowableException.jml",
+"postcondition": "getCause() == undeclaredThrowable"
+},
+{
+"file": "specs/java/lang/reflect/UndeclaredThrowableException.jml",
+"postcondition": "standardThrowable(s, undeclaredThrowable)"
+},
+{
+"file": "specs/java/lang/reflect/UndeclaredThrowableException.jml",
+"postcondition": "getCause() == undeclaredThrowable"
+},
+{
+"file": "specs/java/math/BigDecimal.jml",
+"postcondition": "this.value == d"
+},
+{
+"file": "specs/java/math/BigDecimal.jml",
+"postcondition": "this.value == i.value"
+},
+{
+"file": "specs/java/math/BigDecimal.jml",
+"postcondition": "this.value == i"
+},
+{
+"file": "specs/java/math/BigDecimal.jml",
+"postcondition": "this.value == i"
+},
+{
+"file": "specs/java/math/BigDecimal.jml",
+"postcondition": "\\result.value == i"
+},
+{
+"file": "specs/java/net/BindException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/BindException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/net/ConnectException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/ConnectException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/net/MalformedURLException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/MalformedURLException.jml",
+"postcondition": "standardThrowable(msg)"
+},
+{
+"file": "specs/java/net/NoRouteToHostException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/NoRouteToHostException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/net/PortUnreachableException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/PortUnreachableException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/net/ProtocolException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/ProtocolException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/net/ServerSocket.jml",
+"postcondition": "\\result == _port"
+},
+{
+"file": "specs/java/net/SocketException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/SocketException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/net/SocketTimeoutException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/SocketTimeoutException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/net/UnknownHostException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/UnknownHostException.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/net/UnknownServiceException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/net/UnknownServiceException.jml",
+"postcondition": "standardThrowable(msg)"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "\\result == capacity"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "\\result == position"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "position == i"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "\\result == limit"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.limit == i"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.mark == this.position"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.position == this.mark"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.mark == 0"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.position == 0"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.limit == this.capacity"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.limit == \\old(this.position)"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.position == 0"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.mark == 0"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "this.position == 0"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "\\result == (limit - position)"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "\\result == (position < limit)"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "\\result == _isReadOnly"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "\\result == (_hasBackingArray && !_isReadOnly)"
+},
+{
+"file": "specs/java/nio/Buffer.jml",
+"postcondition": "\\result == _offset"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.offset == 0"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.position == 0"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.limit == n"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.capacity == n"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hb != null"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hb.length == n"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.isReadOnly == false"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.offset == 0"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.mark >= 0 && \\result.mark <= \\result.position"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.position == 0"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.limit == n"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.capacity == n"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hb != null"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\fresh(\\result.hb)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hb.length == n"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result._isDirect == false"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.isReadOnly == false"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hasArray()"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.offset == 0"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.mark == offset"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.position == offset"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.limit == offset + length"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.capacity == b.length"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hb == b"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result._isDirect == false"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.isReadOnly == false"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.offset == 0"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.mark == 0"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.position == 0"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.limit == b.length"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.capacity == b.length"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hb == b"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.isReadOnly == false"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.offset == position"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.position == 0"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.limit == limit - position"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.capacity == limit - position"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hb == hb"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.isReadOnly == isReadOnly"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.offset == offset"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.mark == mark"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.position == position"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.limit == limit"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.capacity == capacity"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hb == hb"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.isReadOnly == isReadOnly"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.offset == offset"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.mark == mark"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.position == position"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.limit == limit"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.capacity == capacity"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.hb == hb"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result.isReadOnly"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + 1"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == hb[\\old(this.offset + this.position)]"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + 1"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "hb[this.offset + \\old(this.position)] == b"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == hb[offset + index]"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "hb[offset + index] == b"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + length"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "(\\forall int i; 0<=i<length; buf[offset + i] == this.hb[\\old(this.offset + this.position) + i])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "(\\forall int i; 0<=i<offset; buf[i] == \\old(buf[i]))"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "(\\forall int i; offset + length<=i<buf.length; buf[i] == \\old(buf[i]))"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + buf.length"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "(\\forall int i; 0<=i<buf.length; buf[i] == this.hb[\\old(this.offset + this.position) + i])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "java.util.Arrays.equalArrays(buf, 0, this.hb, \\old(this.position), buf.length)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "position == \\old(position) + move"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "src.position == src.limit"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "java.util.Arrays.equalArrays(hb, \\old(this.offset + this.position), src.hb, \\old(src.offset + src.position), move)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "position == Math.min(limit, \\old(position) + length)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "(\\forall int i; offset <= i && i < offset + length; buf[i] == hb[i - offset + \\old(position)])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + moved"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "java.util.Arrays.equalArrays(hb, \\old(this.offset + position), buf, 0, moved)"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "(\\forall \\bigint i; 0<=i<moved; hb[i + \\old(this.offset + position)] == buf[i])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == hb"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + Short.BYTES"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == asShort(hb[\\old(this.offset + position)], hb[\\old(this.offset + position + 1)])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == oldpos + Short.BYTES"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "getShort(oldpos) == s"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == asShort(hb[this.offset + i], hb[this.offset + i + 1])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + Integer.BYTES"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == asInt(hb[\\old(this.offset + position)], hb[\\old(this.offset + position + 1)], hb[\\old(this.offset + position + 2)], hb[\\old(this.offset + position + 3)])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + Integer.BYTES"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "getInt(\\old(position)) == i"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == asInt(hb[this.offset + i], hb[this.offset + i + 1], hb[this.offset + i + 2], hb[this.offset + i + 3])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "getInt(index) == value"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + Long.BYTES"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == Long.asLong(hb[\\old(this.offset + position)], hb[\\old(this.offset + position + 1)], hb[\\old(this.offset + position + 2)], hb[\\old(this.offset + position + 3)], hb[\\old(this.offset + position + 4)], hb[\\old(this.offset + position + 5)], hb[\\old(this.offset + position + 6)], hb[\\old(this.offset + position + 7)])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "this.position == \\old(this.position) + Long.BYTES"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "getLong(\\old(position)) == n"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == Long.asLong(hb[this.offset + i], hb[this.offset + i + 1], hb[this.offset + i + 2], hb[this.offset + i + 3], hb[this.offset + i + 4], hb[this.offset + i + 5], hb[this.offset + i + 6], hb[this.offset + i + 7])"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "getLong(i) == n"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == (b0 * (0x100) + Byte.toUnsignedInt(b1))"
+},
+{
+"file": "specs/java/nio/ByteBuffer.jml",
+"postcondition": "\\result == (b0 * (0x100_0000) + Byte.toUnsignedInt(b1) * (0x1_0000) + Byte.toUnsignedInt(b2) * (0x100) + Byte.toUnsignedInt(b3))"
+},
+{
+"file": "specs/java/nio/channels/Channel.jml",
+"postcondition": "\\result == _isOpen"
+},
+{
+"file": "specs/java/nio/channels/Channel.jml",
+"postcondition": "!_isOpen"
+},
+{
+"file": "specs/java/nio/channels/ClosedChannelException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/nio/channels/ServerSocketChannel.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/nio/channels/ServerSocketChannel.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/channels/ServerSocketChannel.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/channels/ServerSocketChannel.jml",
+"postcondition": "\\result == _socket"
+},
+{
+"file": "specs/java/nio/channels/WritableByteChannel.jml",
+"postcondition": "\\result >= 0"
+},
+{
+"file": "specs/java/nio/channels/WritableByteChannel.jml",
+"postcondition": "b.position == \\old(b.position) + \\result"
+},
+{
+"file": "specs/java/nio/channels/spi/AbstractInterruptibleChannel.jml",
+"postcondition": "!_isOpen"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/nio/file/Files.jml",
+"postcondition": "\\nonnullelements(\\result.values)"
+},
+{
+"file": "specs/java/nio/file/Path.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/nio/file/Path.jml",
+"postcondition": "\\result == path"
+},
+{
+"file": "specs/java/nio/file/Path.jml",
+"postcondition": "\\result.canonicalPath.length == this.canonicalPath.length + path.canonicalPath.length"
+},
+{
+"file": "specs/java/nio/file/Path.jml",
+"postcondition": "java.util.Arrays.equalArrays(\\result.canonicalPath, 0, this.canonicalPath, 0, this.canonicalPath.length)"
+},
+{
+"file": "specs/java/nio/file/Path.jml",
+"postcondition": "java.util.Arrays.equalArrays(\\result.canonicalPath, this.canonicalPath.length, path.canonicalPath, 0, path.canonicalPath.length)"
+},
+{
+"file": "specs/java/nio/file/Path.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/nio/file/Path.jml",
+"postcondition": "\\result.chars == modelString"
+},
+{
+"file": "specs/java/nio/file/attribute/PosixFilePermissions.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/security/AlgorithmParameterGenerator.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/AlgorithmParameterGenerator.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/AlgorithmParameterGenerator.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/AlgorithmParameterGenerator.jml",
+"postcondition": "N == n"
+},
+{
+"file": "specs/java/security/AlgorithmParameterGenerator.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/AlgorithmParameterGenerator.jml",
+"postcondition": "\\result.N == this.N"
+},
+{
+"file": "specs/java/security/AlgorithmParameters.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/AlgorithmParameters.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/AlgorithmParameters.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/AlgorithmParameters.jml",
+"postcondition": "\\result instanceof DHParameterSpec ==> ((DHParameterSpec) \\result).getP().signum() >= 0"
+},
+{
+"file": "specs/java/security/AlgorithmParameters.jml",
+"postcondition": "\\result instanceof DHParameterSpec ==> ((DHParameterSpec) \\result).getG().signum() >= 0"
+},
+{
+"file": "specs/java/security/AlgorithmParameters.jml",
+"postcondition": "\\result instanceof DHParameterSpec ==> ((DHParameterSpec) \\result).getP().value < java.math.BigInteger.pow256(N / 8)"
+},
+{
+"file": "specs/java/security/AlgorithmParameters.jml",
+"postcondition": "\\result instanceof DHParameterSpec ==> ((DHParameterSpec) \\result).getG().value < java.math.BigInteger.pow256(N / 8)"
+},
+{
+"file": "specs/java/security/GeneralSecurityException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/security/GeneralSecurityException.jml",
+"postcondition": "standardThrowable(msg)"
+},
+{
+"file": "specs/java/security/GeneralSecurityException.jml",
+"postcondition": "standardThrowable(cause)"
+},
+{
+"file": "specs/java/security/GeneralSecurityException.jml",
+"postcondition": "standardThrowable(message, cause)"
+},
+{
+"file": "specs/java/security/InvalidKeyException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/security/InvalidKeyException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/security/InvalidKeyException.jml",
+"postcondition": "standardThrowable(cause)"
+},
+{
+"file": "specs/java/security/InvalidKeyException.jml",
+"postcondition": "standardThrowable(s, cause)"
+},
+{
+"file": "specs/java/security/KeyFactory.jml",
+"postcondition": "\\result == algorithm"
+},
+{
+"file": "specs/java/security/KeyFactory.jml",
+"postcondition": "(spec instanceof javax.crypto.spec.DHPublicKeySpec) ==> (\\result instanceof javax.crypto.interfaces.DHPublicKey)"
+},
+{
+"file": "specs/java/security/KeyPair.jml",
+"postcondition": "this.publicKey == publickey"
+},
+{
+"file": "specs/java/security/KeyPair.jml",
+"postcondition": "this.privateKey == privatekey"
+},
+{
+"file": "specs/java/security/KeyPairGenerator.jml",
+"postcondition": "this.algorithm == algorithm"
+},
+{
+"file": "specs/java/security/KeyPairGenerator.jml",
+"postcondition": "this.algorithm == \\old(this.algorithm)"
+},
+{
+"file": "specs/java/security/KeyPairGenerator.jml",
+"postcondition": "this.n == alg.n"
+},
+{
+"file": "specs/java/security/KeyPairGenerator.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/KeyPairGenerator.jml",
+"postcondition": "\\result.getPublic() instanceof DHPublicKey ==> 0<=((DHPublicKey) \\result.getPublic()).getY().value<java.math.BigInteger.pow256(this.n)"
+},
+{
+"file": "specs/java/security/KeyPairGenerator.jml",
+"postcondition": "\\result ==> alg.n == n"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "\\result == provider"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "\\result.length == this.length"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "\\result == (bb.length == bbb.length && java.util.Arrays.equalArrays(bb, 0, bbb, 0, bb.length))"
+},
+{
+"file": "specs/java/security/MessageDigest.jml",
+"postcondition": "\\result >= 0"
+},
+{
+"file": "specs/java/security/NoSuchAlgorithmException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/security/NoSuchAlgorithmException.jml",
+"postcondition": "standardThrowable(msg)"
+},
+{
+"file": "specs/java/security/NoSuchAlgorithmException.jml",
+"postcondition": "standardThrowable(cause)"
+},
+{
+"file": "specs/java/security/NoSuchAlgorithmException.jml",
+"postcondition": "standardThrowable(message, cause)"
+},
+{
+"file": "specs/java/security/SecureRandom.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/security/SecureRandom.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/security/spec/EncodedKeySpec.jml",
+"postcondition": "\\fresh(_bytes)"
+},
+{
+"file": "specs/java/security/spec/EncodedKeySpec.jml",
+"postcondition": "_bytes.length == encodedKey.length"
+},
+{
+"file": "specs/java/security/spec/EncodedKeySpec.jml",
+"postcondition": "java.util.Arrays.equalArrays(_bytes, encodedKey)"
+},
+{
+"file": "specs/java/security/spec/EncodedKeySpec.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/security/spec/EncodedKeySpec.jml",
+"postcondition": "java.util.Arrays.equalArrays(\\result, _bytes)"
+},
+{
+"file": "specs/java/text/DateFormat.jml",
+"postcondition": "\\nonnullelements(\\result)"
+},
+{
+"file": "specs/java/text/DateFormat.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/text/DateFormat.jml",
+"postcondition": "calendar == null"
+},
+{
+"file": "specs/java/time/Instant.jml",
+"postcondition": "\\result == (nanos / 1000000) + 1000 * seconds"
+},
+{
+"file": "specs/java/time/Instant.jml",
+"postcondition": "\\result == (Long.MIN_VALUE<=1000 * seconds<=(Long.MAX_VALUE - 1000))"
+},
+{
+"file": "specs/java/time/Instant.jml",
+"postcondition": "\\result == okEpochMilliForLong(instant.seconds, instant.nanos)"
+},
+{
+"file": "specs/java/util/AbstractCollection.jml",
+"postcondition": "initialAbstractCollection()"
+},
+{
+"file": "specs/java/util/AbstractCollection.jml",
+"postcondition": "\\result <==> initialCollection()"
+},
+{
+"file": "specs/java/util/AbstractList.jml",
+"postcondition": "initialAbstractList()"
+},
+{
+"file": "specs/java/util/AbstractList.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/AbstractList.jml",
+"postcondition": "size() == \\old(size()) - (mn - fromIndex)"
+},
+{
+"file": "specs/java/util/AbstractList.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < fromIndex; get(i) == \\old(get(i)))"
+},
+{
+"file": "specs/java/util/AbstractList.jml",
+"postcondition": "(\\forall int i; mn <= i && i < \\old(size()); get(i - mn + fromIndex) == \\old(get(i)))"
+},
+{
+"file": "specs/java/util/AbstractList.jml",
+"postcondition": "\\result <==> (initialAbstractCollection() && initialList())"
+},
+{
+"file": "specs/java/util/AbstractMap.jml",
+"postcondition": "initialAbstractMap()"
+},
+{
+"file": "specs/java/util/AbstractMap.jml",
+"postcondition": "\\result <==> isEmpty()"
+},
+{
+"file": "specs/java/util/AbstractSequentialList.jml",
+"postcondition": "initialAbstractSequentialList()"
+},
+{
+"file": "specs/java/util/AbstractSequentialList.jml",
+"postcondition": "\\result <==> initialAbstractList()"
+},
+{
+"file": "specs/java/util/AbstractSet.jml",
+"postcondition": "initialAbstractSet()"
+},
+{
+"file": "specs/java/util/AbstractSet.jml",
+"postcondition": "\\result <==> (initialCollection() && initialSet())"
+},
+{
+"file": "specs/java/util/ArrayDeque.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/ArrayDeque.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/ArrayDeque.jml",
+"postcondition": "(\\forall int i; 0 <= i & i < values.length; \\result[i].equals(_get(i)))"
+},
+{
+"file": "specs/java/util/ArrayDeque.jml",
+"postcondition": "(\\forall int i; 0 <= i & i < values.length; \\result[i].equals(_get(i)))"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "initialArrayList(initialCapacity)"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "initialArrayList(10)"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "this.size() == c.size()"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < c.size(); this.values[i] == c.values[i])"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "(\\forall E e; this.contains(e) <==> c.contains(e))"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "c.size() <= capacity"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "containsNull == c.containsNull"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "\\not_modified(containsNull, values.length, values, modelString)"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "capacity == this.size()"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "capacity >= minCapacity"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "\\not_modified(containsNull, values.length, values)"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "\\not_modified(modelString)"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "\\result != this"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "\\result.equals(this)"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "((List<E>) \\result).containsNull == this.containsNull"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "((ArrayList<E>) \\result).values.length == this.values.length"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "((List<E>) \\result).values == this.values"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "((ArrayList<E>) \\result).modelString == this.modelString"
+},
+{
+"file": "specs/java/util/ArrayList.jml",
+"postcondition": "\\result <==> initialAbstractList() && capacity == initialCapacity && isEmpty() && containsNull"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "size(content) >= nbits"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "cardinality(content) == 0"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "(\\forall int i; 0 <= i; !isSet(content, i))"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "\\result == isSet(content, bitIndex)"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "\\result <==> (\\forall int i; 0 <= i; isSet(content, i) == isSet(((BitSet) obj).content, i))"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "(cardinality() != ((BitSet) obj).cardinality()) ==> !\\result"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "(\\forall int i; 0<=i<fromIndex; !isSet(\\result.content, i))"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "(\\forall int i; toIndex <= i; !isSet(\\result.content, i))"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "(\\forall int i; fromIndex<=i<toIndex; isSet(\\result.content, i) == isSet(content, i))"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "size(\\result.content) >= toIndex"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "cardinality() >= \\result.cardinality()"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "size(content) >= \\old(size(content))"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "(\\forall int i; 0 <= i; isSet(content, i) <==> \\old(isSet(content, i) && !isSet(set.content, i)))"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "cardinality() <= \\old(cardinality())"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "size(content) >= (sz >= ssz ? sz : ssz)"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "(\\forall int i; 0 <= i; isSet(content, i) <==> \\old(isSet(content, i) || isSet(set.content, i)))"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "cardinality() >= \\old(cardinality())"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "cardinality() >= \\old(set.cardinality())"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "(\\forall int i; 0 <= i; isSet(content, i) <==> \\old(isSet(content, i) != isSet(set.content, i)))"
+},
+{
+"file": "specs/java/util/BitSet.jml",
+"postcondition": "\\result <==> (\\exists int i; 0 <= i; isSet(content, i) && isSet(set.content, i))"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "this.zone.equals(zone) && this.locale.equals(aLocale) && firstDayOfWeek == data[0] && minimalDaysInFirstWeek == data[1]"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result != null && \\result.zone == zone"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result != null && \\result.locale == aLocale"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result != null && \\result.zone == zone && \\result.locale == aLocale"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "correspondsTimeAndFields()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "correspondsTimeAndFields()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result != null && \\result.getTime() == this.getTimeInMillis()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "date.getTime() == this.getTimeInMillis()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result == time"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "time == millis && isTimeSet && areFieldsSet && areAllFieldsSet"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result == fields[field]"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result == fields[field]"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "fields[field] == value"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "!isTimeSet && !areFieldsSet && isSet[field]"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "!areFieldsSet && !areAllFieldsSet && !isTimeSet && fields != null && stamp != null && isSet != null"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "fields[field] == 0 && stamp[field] == UNSET && !areFieldsSet && !areAllFieldsSet && !isSet[field] && !isTimeSet"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result == (stamp[field] != UNSET)"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "areFieldsSet && areAllFieldsSet"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "obj instanceof Calendar && this.getTimeInMillis() == calendar.getTimeInMillis() && this.lenient == calendar.lenient && this.firstDayOfWeek == calendar.firstDayOfWeek && this.minimalDaysInFirstWeek == calendar.minimalDaysInFirstWeek && zone.equals(calendar.zone)"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "when instanceof Calendar && \\result == (this.getTimeInMillis() < ((Calendar) when).getTimeInMillis())"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "when instanceof Calendar && \\result == (this.getTimeInMillis() > ((Calendar) when).getTimeInMillis())"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "this.zone.equals(value) && !areFieldsSet"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result.equals(this.zone)"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "this.lenient == lenient"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result == lenient"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "firstDayOfWeek == value"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result == firstDayOfWeek"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "minimalDaysInFirstWeek == value"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\result == minimalDaysInFirstWeek"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "resultIsMinimum()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "resultIsMaximum()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "resultIsMinimum()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "resultIsMaximum()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "resultIsMinimum()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "resultIsMaximum()"
+},
+{
+"file": "specs/java/util/Calendar.jml",
+"postcondition": "\\fresh(\\result) && \\result.equals(this)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result == values.length"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result <==> (values.length == 0)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "(containsNull || \\nonnullelements(\\result))"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result.length == size()"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\typeof(\\result) == \\type(Object[])"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "(\\forall int i; 0<=i<\\result.length; containsObject(\\result[i]))"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "(\\forall Object o; containsObject(o) <==> Arrays.contains(\\result, o))"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result ==> values.length == \\old(values.length - 1)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "!\\result ==> values.length == \\old(values.length)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "!containsObject(null)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "containsObject(null)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "!\\key(\"RAC\") ==> \\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "size() >= \\old(size())"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "!\\result <==> (size() == \\old(size()))"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "c == this ==> isEmpty()"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "values.length <= \\old(values.length)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "!\\result <==> (values.length == \\old(values.length))"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "c == this ==> !\\result"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "values.length <= \\old(values.length)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "!\\result <==> (values.length == \\old(values.length))"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result.values.length == this.values.length"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "(\\forall int i; 0<=i<\\result.values.length; \\result.values[i] == this.values[i])"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result == (o == oo || (o != null && oo != null && (o.uniqueHash == oo.uniqueHash)))"
+},
+{
+"file": "specs/java/util/Collection.jml",
+"postcondition": "\\result <==> (values.length == 0 && containsNull == true)"
+},
+{
+"file": "specs/java/util/Collections.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/Collections.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/Collections.jml",
+"postcondition": "\\result.values.length == 1"
+},
+{
+"file": "specs/java/util/Collections.jml",
+"postcondition": "\\result.values[0] == item"
+},
+{
+"file": "specs/java/util/Collections.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/ConcurrentModificationException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/util/ConcurrentModificationException.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "cal == null"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "fastTime == date"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "\\fresh(\\result) && \\result.equals(this)"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "\\result == fastTime"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "\\result == cal.getTimeInMillis()"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "fastTime == time"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "time == cal.getTimeInMillis()"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "\\result == (this.getTime() < when.getTime())"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "\\result == (this.getTime() > when.getTime())"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "obj instanceof Date && \\result == (this.getTime() == date.getTime())"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "\\result < 0"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "\\result == 0"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "\\result > 0"
+},
+{
+"file": "specs/java/util/Date.jml",
+"postcondition": "\\result == instant"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "_get(0) == e && size() == \\old(size()) + 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\forall int i; 0 < i && i < values.length; values[i + 1] == \\old(values[i]))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == _get(0)"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == _get(size() - 1)"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < values.length; \\result.nthNextElement(i) == values[i])"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == (isEmpty() ? null : _get(0))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null ==> isEmpty() | containsNull"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == (isEmpty() ? null : _get(size() - 1))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null ==> isEmpty() | containsNull"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == \\old(_get(0))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\forall \\bigint i; 0 < i && i < values.length; _get(i - 1) == \\old(_get(i)))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == \\old(_get(size() - 1))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\forall \\bigint i; 0 <= i && i < values.length; _get(i) == \\old(_get(i)))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == \\old(_get(0))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\forall \\bigint i; 0 < i && i < values.length; _get(i - 1) == \\old(_get(i)))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "_get(0) == e && size() == \\old(size()) + 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\forall \\bigint i; 0 < i && i < values.length; _get(i + 1) == \\old(_get(i)))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == \\old(_get(0))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\forall \\bigint i; 0 < i && i < values.length; _get(i - 1) == \\old(_get(i)))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\exists \\bigint i; 0 <= i && i <= values.length && (\\old(_get(i)) == null || \\old(_get(i)).equals(o)) && (\\forall \\bigint j; 0 <= j && j < i; !(\\old(_get(i)) == null || \\old(_get(j)).equals(o))); (\\forall \\bigint j; 0 <= j && j < i; _get(j) == \\old(_get(j))) && (\\forall \\bigint j; i < j && j <= values.length; _get(j - 1) == \\old(_get(j))))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\exists \\bigint i; 0 <= i && i <= values.length && (\\old(_get(i)) == null || \\old(_get(i)).equals(o)) && (\\forall \\bigint j; 0 <= j && j < i; !(\\old(_get(i)) == null || \\old(_get(j)).equals(o))); (\\forall \\bigint j; 0 <= j && j < i; _get(j) == \\old(_get(j))) && (\\forall \\bigint j; i < j && j <= values.length; _get(j - 1) == \\old(_get(j))))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == \\old(_get(size() - 1))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\forall \\bigint i; 0 <= i && i < values.length; _get(i) == \\old(_get(i)))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "(\\exists \\bigint i; 0 <= i && i <= values.length && \\old(_get(i)).equals(o) && (\\forall \\bigint j; i < j && j <= values.length; !\\old(_get(j)).equals(o)); (\\forall \\bigint j; 0 <= j && j < i; _get(j) == \\old(_get(j))) && (\\forall \\bigint j; i < j && j <= values.length; _get(j - 1) == \\old(_get(j))))"
+},
+{
+"file": "specs/java/util/Deque.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/EmptyStackException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/util/EnumMap.jml",
+"postcondition": "keyType == clazz"
+},
+{
+"file": "specs/java/util/EnumMap.jml",
+"postcondition": "this.modelMap == map.modelMap"
+},
+{
+"file": "specs/java/util/EnumMap.jml",
+"postcondition": "this.modelMap == map.modelMap"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result) && \\fresh(\\result.values)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.isEmpty()"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result) && \\fresh(\\result.values)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result) && \\fresh(\\result.values)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result) && \\fresh(\\result.values)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values.length == 1"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[0] == e"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result) && \\fresh(\\result.values)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values.length == 2"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[0] == e1"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[1] == e2"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result) && \\fresh(\\result.values)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values.length == 3"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[0] == e1"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[1] == e2"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[2] == e3"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result) && \\fresh(\\result.values)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values.length == 4"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[0] == e1"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[1] == e2"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[2] == e3"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[3] == e4"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result) && \\fresh(\\result.values)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values.length == 5"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[0] == e1"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[1] == e2"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[2] == e3"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[3] == e4"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[4] == e5"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\fresh(\\result) && \\fresh(\\result.values)"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values.length == ee.length + 1"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "\\result.values[0] == e"
+},
+{
+"file": "specs/java/util/EnumSet.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < ee.length; \\result.values[i + 1] == ee[i])"
+},
+{
+"file": "specs/java/util/Enumeration.jml",
+"postcondition": "\\result <==> moreElements"
+},
+{
+"file": "specs/java/util/Enumeration.jml",
+"postcondition": "!returnsNull ==> (\\result != null)"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "this.zone == zone && this.locale == Locale.getDefault()"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "this.zone == TimeZone.getDefault() && this.locale == aLocale"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "this.zone == zone && this.locale == aLocale"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "this.zone == TimeZone.getDefault() && this.locale == Locale.getDefault()"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "this.zone == TimeZone.getDefault() && this.locale == Locale.getDefault()"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result.getTime() == gregorianCutover"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0)))"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == (year % 4 == 0)"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "obj instanceof GregorianCalendar && gregorianCutover == gcal.gregorianCutover"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "isComplete()"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == MIN_VALUES[field]"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == MAX_VALUES[field]"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == getMinimum(field)"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == LEAST_MAX_VALUES[field]"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == MIN_VALUES[field]"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == monthLength(get(MONTH))"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == yearLength()"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == super.getActualMaximum(field)"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == computeLowGood()"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == getMaximum(field)"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == LEAP_MONTH_LENGTH[month]"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == MONTH_LENGTH[month]"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == internalGet(ERA)"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == AD"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == 366"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == 365"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == numerator / denominator"
+},
+{
+"file": "specs/java/util/GregorianCalendar.jml",
+"postcondition": "\\result == ((numerator + 1) / denominator) - 1"
+},
+{
+"file": "specs/java/util/HashSet.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/HashSet.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/HashSet.jml",
+"postcondition": "size() == c.size()"
+},
+{
+"file": "specs/java/util/HashSet.jml",
+"postcondition": "(\\forall E e; containsObject(e) ==> c.containsObject(e))"
+},
+{
+"file": "specs/java/util/HashSet.jml",
+"postcondition": "c instanceof Set ==> (\\forall E e; c.containsObject(e) ==> containsObject(e))"
+},
+{
+"file": "specs/java/util/HashSet.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/HashSet.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "initialHashtable((double) mLoadFactor, initialCapacity)"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "initialHashtable(0.75, initialCapacity)"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "initialHashtable(0.75, 11)"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "mLoadFactor == 0.75"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "equals(t)"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "initialCapacity >= t.size()"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "\\result == containsValue(value)"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "\\result instanceof Map && \\fresh(\\result) && ((Map) \\result).equals(this)"
+},
+{
+"file": "specs/java/util/Hashtable.jml",
+"postcondition": "\\result <==> (isEmpty() && mLoadFactor == f && initialCapacity == i)"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "size == 0"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "_keyset.isEmpty()"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "size == 0"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "_keyset.isEmpty()"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "size == \\old(size) - 1"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "_keyset == \\old(_keyset).remove((K) o)"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "_map == \\old(_map)"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "\\result == (this.size == m.size && this._keyset == m._keyset && (\\forall K k; _keyset.contains(k); this._map.get(k) == m._map.get(k)))"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "\\result instanceof IdentityHashMap"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "((IdentityHashMap) \\result).size == this.size"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "((IdentityHashMap) \\result)._keyset == this._keyset"
+},
+{
+"file": "specs/java/util/IdentityHashMap.jml",
+"postcondition": "((IdentityHashMap) \\result)._map == this._map"
+},
+{
+"file": "specs/java/util/Iterator.jml",
+"postcondition": "\\result <==> moreElements"
+},
+{
+"file": "specs/java/util/LinkedList.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/LinkedList.jml",
+"postcondition": "containsNull"
+},
+{
+"file": "specs/java/util/LinkedList.jml",
+"postcondition": "containsNull == c.containsNull"
+},
+{
+"file": "specs/java/util/LinkedList.jml",
+"postcondition": "!containsNull ==> \\result != null"
+},
+{
+"file": "specs/java/util/LinkedList.jml",
+"postcondition": "\\result == get(0)"
+},
+{
+"file": "specs/java/util/LinkedList.jml",
+"postcondition": "!containsNull ==> \\result != null"
+},
+{
+"file": "specs/java/util/LinkedList.jml",
+"postcondition": "\\result == get(size() - 1)"
+},
+{
+"file": "specs/java/util/LinkedList.jml",
+"postcondition": "\\result instanceof LinkedList && \\fresh(\\result) && ((LinkedList) \\result).equals(this)"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\result.length == size()"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < size(); \\result[i] == values[i])"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\result == a"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "(\\forall int k; 0 <= k && k < colSize; \\result[k] == values[k])"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "(\\forall int i; colSize <= i && i < arrSize; \\result[i] == null)"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\fresh(\\result) && \\result.length == colSize"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "(\\forall int k; 0 <= k && k < colSize; \\result[k] == values[k])"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "!\\result ==> values.length == \\old(values.length)"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\result ==> values.length == \\old(values.length - 1)"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\result <==> (\\forall \\bigint i; 0<=i<values.length; Objects.equals(values[i], ((List<E>) o).values[i]))"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\result.size() == toIndex - fromIndex"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "(\\forall int i; fromIndex <= i && i < toIndex; values[i] == \\result.values[i - fromIndex])"
+},
+{
+"file": "specs/java/util/List.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result == \\old(this.abstractValue)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "this.abstractValue == value"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "!\\key(\"RAC\") ==> \\result == (this == o || (nullequals(((Entry) o).abstractKey, abstractKey) && nullequals(((Entry) o).abstractValue, abstractValue)))"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result == false"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "!\\key(\"RAC\") ==> \\result <==> (nullequals(abstractKey, key) && nullequals(abstractValue, value))"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result <==> (abstractKey == key && abstractValue == value)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result <==> equalsObjects(e.getKey(), e.getValue())"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "modelMap == \\old(modelMap).put(key.uniqueHash, value)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "keys == \\old(keys).add(key.uniqueHash)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "keys[key.uniqueHash]"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "modelMap[key.uniqueHash] == value"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result == \\old(keys[key.uniqueHash] ? modelMap[key.uniqueHash] : null)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "_size == \\old(keys[key.uniqueHash] ? _size : _size + 1)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "_size > 0"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "nullValue == value"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "nullPresent"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result == \\old(nullPresent ? nullValue : null)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "_size == \\old(nullPresent ? _size : _size + 1)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result != null ==> keys[key.uniqueHash] == false"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result != null ==> _size == \\old(keys[key.uniqueHash] ? _size - 1 : _size)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "nullPresent == false"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result != null ==> _size == \\old(nullPresent ? _size - 1 : _size)"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result.size() == _size"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result.size() == _size"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/Map.jml",
+"postcondition": "\\result == (o == oo || (o != null && oo != null && o.equals(oo)))"
+},
+{
+"file": "specs/java/util/MissingResourceException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/util/MissingResourceException.jml",
+"postcondition": "theClass.equals(ss)"
+},
+{
+"file": "specs/java/util/MissingResourceException.jml",
+"postcondition": "theKey.equals(sss)"
+},
+{
+"file": "specs/java/util/MissingResourceException.jml",
+"postcondition": "standardThrowable(s, t)"
+},
+{
+"file": "specs/java/util/MissingResourceException.jml",
+"postcondition": "theClass.equals(ss)"
+},
+{
+"file": "specs/java/util/MissingResourceException.jml",
+"postcondition": "theKey.equals(sss)"
+},
+{
+"file": "specs/java/util/MissingResourceException.jml",
+"postcondition": "theKey.equals(\\result)"
+},
+{
+"file": "specs/java/util/MissingResourceException.jml",
+"postcondition": "theClass.equals(\\result)"
+},
+{
+"file": "specs/java/util/NoSuchElementException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/util/NoSuchElementException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/util/Objects.jml",
+"postcondition": "(a == null && b == null) ==> \\result"
+},
+{
+"file": "specs/java/util/Objects.jml",
+"postcondition": "(a == null && b != null || a != null && b == null) ==> !\\result"
+},
+{
+"file": "specs/java/util/Objects.jml",
+"postcondition": "(a != null && b != null) ==> \\result == a.equals(b)"
+},
+{
+"file": "specs/java/util/Objects.jml",
+"postcondition": "\\result == (o == null ? 0 : o.theHashCode)"
+},
+{
+"file": "specs/java/util/Objects.jml",
+"postcondition": "\\result == Arrays.hashCode(values)"
+},
+{
+"file": "specs/java/util/Objects.jml",
+"postcondition": "\\result.chars == (o == null ? \"null\".chars : o.modelString)"
+},
+{
+"file": "specs/java/util/Objects.jml",
+"postcondition": "\\result.chars == (o == null ? nullDefault.chars : o.modelString)"
+},
+{
+"file": "specs/java/util/Observable.jml",
+"postcondition": "observers.length == 0 && !_changed"
+},
+{
+"file": "specs/java/util/Observable.jml",
+"postcondition": "observers.length == 0"
+},
+{
+"file": "specs/java/util/Observable.jml",
+"postcondition": "_changed"
+},
+{
+"file": "specs/java/util/Observable.jml",
+"postcondition": "!_changed"
+},
+{
+"file": "specs/java/util/Observable.jml",
+"postcondition": "\\result <==> _changed"
+},
+{
+"file": "specs/java/util/Observable.jml",
+"postcondition": "\\result == observers.length"
+},
+{
+"file": "specs/java/util/Optional.jml",
+"postcondition": "\\result.value == null"
+},
+{
+"file": "specs/java/util/Optional.jml",
+"postcondition": "this.value == value"
+},
+{
+"file": "specs/java/util/Optional.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/Optional.jml",
+"postcondition": "\\result.value == value"
+},
+{
+"file": "specs/java/util/Optional.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/Optional.jml",
+"postcondition": "\\result.value == value"
+},
+{
+"file": "specs/java/util/Optional.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/Properties.jml",
+"postcondition": "initialProperties(null)"
+},
+{
+"file": "specs/java/util/Properties.jml",
+"postcondition": "initialProperties(defaults)"
+},
+{
+"file": "specs/java/util/Properties.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "size() == \\old(size()) + 1"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "values[values.length - 1] == e"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "(\\forall int i; 0 <= i & i < values.length - 1; values[i] == \\old(values[i]))"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result == _get(0)"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result == (isEmpty() ? null : _get(0))"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result == null ==> isEmpty() | containsNull"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result == null"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result == \\old(_get(0))"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "(\\forall int i; 0<i<\\old(values.length); _get(i - 1) == \\old(_get(i)))"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result == \\old(_get(0))"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "(\\forall int i; 0<i<values.length; _get(i - 1) == \\old(_get(i)))"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "size() == \\old(size()) - 1"
+},
+{
+"file": "specs/java/util/Queue.jml",
+"postcondition": "\\result == null ==> containsNull"
+},
+{
+"file": "specs/java/util/Random.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/Random.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/ResourceBundle.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/ResourceBundle.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "size() == \\old(size() + 1)"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "size() == \\old(size() + 1)"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "!containsNull ==> \\result != null"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "size() == \\old(size() - 1)"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "!containsNull ==> \\result != null"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "size() == \\old(size() - 1)"
+},
+{
+"file": "specs/java/util/SequencedCollection.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "!contains(o)"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() == 0"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() == 1"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() <= 2"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() <= 3"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() <= 4"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() <= 5"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() <= 6"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() <= 7"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() <= 8"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() <= 9"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result.size() <= 10"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "elements != null ==> \\result.size() <= elements.length"
+},
+{
+"file": "specs/java/util/Set.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/TooManyListenersException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/util/TooManyListenersException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "maxCapacity == initialCapacity && this.capacityIncrement == capacityIncrement"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "containsNull"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == 0"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "maxCapacity == initialCapacity && capacityIncrement == 0"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "containsNull"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == 0"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "maxCapacity > 0 && capacityIncrement == 0"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == 0"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "values.length == 0"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "containsNull"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < elementCount; get(i) == anArray[i])"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "!containsNull ==> !\\nonnullelements(anArray)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\not_modified(modelString)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\not_modified(elementCount, containsNull)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\not_modified(values.length)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < size(); get(i) == \\old(get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "maxCapacity == elementCount"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\result == maxCapacity"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\result == elementCount"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\result == (elementCount == 0)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\result == -1 || (index <= \\result && \\result < elementCount)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "!\\key(\"RAC\") ==> \\result == -1 <==> (\\forall int i; index <= i && i < size(); !Collection.nullequals(o, get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "!\\key(\"RAC\") ==> \\result != -1 ==> Collection.nullequals(o, get(\\result))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "!\\key(\"RAC\") ==> (\\forall int i; index <= i && i < \\result; !Collection.nullequals(o, get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "-1 <= \\result && \\result <= index"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "!\\key(\"RAC\") ==> \\result == -1 <==> (\\forall int i; 0 <= i && i <= index; !Collection.nullequals(elem, get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\result != -1 ==> get(\\result).equals(elem)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "!\\key(\"RAC\") ==> (\\forall int i; \\result < i && i <= index; !Collection.nullequals(elem, get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == \\old(elementCount)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "!\\key(\"RAC\") ==> Collection.nullequals(obj, get(index))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < elementCount && i != index; get(i) == \\old(get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == \\old(elementCount) - 1"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < index; get(i) == \\old(get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(\\forall int i; index < i && i < \\old(elementCount); get(i - 1) == \\old(get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "get(index) == obj"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == \\old(elementCount) + 1"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < index; get(i) == \\old(get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(\\forall int i; index <= i && i < \\old(elementCount); get(i + 1) == \\old(get(i)))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "maxCapacity == \\old(maxCapacity) + capacityIncrement"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "maxCapacity == \\old(maxCapacity) * 2"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\not_modified(containsNull)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(obj == null & get(elementCount - 1) == null) || get(elementCount - 1).equals(obj)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == \\old(elementCount) + 1"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\not_modified(maxCapacity) && \\not_modified(capacityIncrement)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "maxCapacity == \\old(maxCapacity) + capacityIncrement"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "maxCapacity == 1"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "maxCapacity == \\old(maxCapacity) * 2"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == \\old(elementCount) - 1 && \\result"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == 0"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "((Vector) \\result).elementCount == elementCount"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "((Vector) \\result).containsNull == containsNull"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < elementCount; get(i) == ((Vector) \\result).get(i))"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "!containsNull ==> \\result != null"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "\\result == elementData[index]"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == \\old(elementCount)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(element == null & get(index) == null) || get(index) == (element)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "(o == null & get(elementCount - 1) == null) || get(elementCount - 1) == (o)"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == \\old(elementCount) + 1"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "elementCount == \\old(elementCount) - 1"
+},
+{
+"file": "specs/java/util/Vector.jml",
+"postcondition": "isEmpty()"
+},
+{
+"file": "specs/java/util/concurrent/ConcurrentLinkedQueue.jml",
+"postcondition": "this.values.length == 0"
+},
+{
+"file": "specs/java/util/concurrent/ConcurrentLinkedQueue.jml",
+"postcondition": "\\nonnullelements(this.values)"
+},
+{
+"file": "specs/java/util/concurrent/ConcurrentLinkedQueue.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/concurrent/ConcurrentLinkedQueue.jml",
+"postcondition": "this.values.length == \\old(this.values.length) + 1"
+},
+{
+"file": "specs/java/util/concurrent/ConcurrentLinkedQueue.jml",
+"postcondition": "\\result == (this.values.length == 0)"
+},
+{
+"file": "specs/java/util/concurrent/ConcurrentLinkedQueue.jml",
+"postcondition": "\\result == this.values.length"
+},
+{
+"file": "specs/java/util/concurrent/CountDownLatch.jml",
+"postcondition": "count == n"
+},
+{
+"file": "specs/java/util/concurrent/CountDownLatch.jml",
+"postcondition": "count == 0"
+},
+{
+"file": "specs/java/util/concurrent/CountDownLatch.jml",
+"postcondition": "count == \\old(count) - 1"
+},
+{
+"file": "specs/java/util/concurrent/CountDownLatch.jml",
+"postcondition": "\\result == count"
+},
+{
+"file": "specs/java/util/concurrent/ExecutionException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/java/util/concurrent/ExecutionException.jml",
+"postcondition": "standardThrowable(message)"
+},
+{
+"file": "specs/java/util/concurrent/ExecutionException.jml",
+"postcondition": "standardThrowable(message, cause)"
+},
+{
+"file": "specs/java/util/concurrent/ExecutionException.jml",
+"postcondition": "standardThrowable(cause)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "value == (v ? 1 : 0)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "value == 0"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "\\result == (value != 0)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "value == (vv ? 1 : 0)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "get() == v"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "get() == v"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "value == (v ? 1 : 0)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicBoolean.jml",
+"postcondition": "\\result == (\\old(value) != 0)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == initialValue"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == 0"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == newValue"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == newValue"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == newValue"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == newValue"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == \\old(value) + 1"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == \\old(value) - 1"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == \\old(value) + delta"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == 1 + \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == -1 + \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "value == delta + \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicInteger.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == v"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == 0"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == v"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == v"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == v"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == vv"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "!\\result"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == \\old(value) + 1"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == \\old(value) - 1"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == \\old(value) + v"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == 1 + \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "value == -1 + \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == \\old(value)"
+},
+{
+"file": "specs/java/util/concurrent/atomic/AtomicLong.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/concurrent/locks/LockSupport.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/concurrent/locks/LockSupport.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/concurrent/locks/LockSupport.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/function/BooleanSupplier.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/java/util/function/Consumer.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/function/Predicate.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/function/Supplier.jml",
+"postcondition": "\\result == valuex"
+},
+{
+"file": "specs/java/util/random/RandomGenerator.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/BaseStream.jml",
+"postcondition": "\\result == _isParallel"
+},
+{
+"file": "specs/java/util/stream/BaseStream.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/util/stream/BaseStream.jml",
+"postcondition": "\\result == this"
+},
+{
+"file": "specs/java/util/stream/BaseStream.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/stream/BaseStream.jml",
+"postcondition": "\\result.values == values"
+},
+{
+"file": "specs/java/util/stream/BaseStream.jml",
+"postcondition": "\\result == values[i]"
+},
+{
+"file": "specs/java/util/stream/IntStream.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/stream/IntStream.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/stream/IntStream.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/java/util/stream/IntStream.jml",
+"postcondition": "\\result.values.length == 0"
+},
+{
+"file": "specs/java/util/stream/IntStream.jml",
+"postcondition": "\\result.values.length == 1"
+},
+{
+"file": "specs/java/util/stream/IntStream.jml",
+"postcondition": "\\result.values[0] == i"
+},
+{
+"file": "specs/java/util/stream/IntStream.jml",
+"postcondition": "\\result.values.length == ints.length"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.values.length == this.values.length"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.values.length == values.length"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < values.length; \\result.values[i] == func.applyAsInt(values[i]))"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.values.length == values.length"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "(\\forall int i; 0 <= i && i < values.length; \\result.values[i] == func.applyAsLong(values[i]))"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.length == values.length"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\typeof(\\result) == \\type(T[])"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.length == values.length"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result == values.length"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result == (\\forall int j; 0 <= j && j < values.length; pred.test(values[j]) == true)"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result == (\\forall int j; 0 <= j && j < values.length; pred.test(values[j]) == false)"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "(\\result.value == null) <==> (values.length == 0)"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.value != null ==> (\\result.value == values[0])"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "(\\result.value == null) <==> (values.length == 0)"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.value != null ==> (\\exists int i; 0<=i<values.length; \\result.value == values[i])"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.values.length == 0"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.values.length == 1"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.values[0] == t"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result.values.length == elements.length"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "(\\forall int i; 0<=i<elements.length; \\result.values[i] == elements[i])"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/java/util/stream/Stream.jml",
+"postcondition": "\\result != null"
+},
+{
+"file": "specs/javax/crypto/KeyAgreement.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/KeyAgreement.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/KeyAgreement.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/KeyAgreement.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/KeyAgreement.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/javax/crypto/KeyAgreement.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/javax/crypto/KeyAgreement.jml",
+"postcondition": "\\result.length == _secret.length"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "initialized == false"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.algorithm == algorithm"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "\\result == this.algorithm"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "\\result.algorithm == algorithm"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "\\result.algorithm == algorithm"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "\\result == SIZE"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.initialized == true"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.isReset == true"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.savedInfo == null"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.initialized == true"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.isReset == true"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.savedInfo == null"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.isReset == false"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "!this.isReset"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "!this.isReset"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "!this.isReset"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "!this.isReset"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.isReset"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "\\result.length >= MINSIZE"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "\\result.length == this.currentHash.length"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "Mac.equalArrays(\\result, 0, this.currentHash, 0, (int) \\result.length)"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.isReset"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "Mac.equalArrays(out, outOffset, currentHash, 0, SIZE)"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.isReset"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "this.savedInfo == null"
+},
+{
+"file": "specs/javax/crypto/Mac.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/ShortBufferException.jml",
+"postcondition": "standardThrowable()"
+},
+{
+"file": "specs/javax/crypto/ShortBufferException.jml",
+"postcondition": "standardThrowable(s)"
+},
+{
+"file": "specs/javax/crypto/spec/GCMParameterSpec.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/spec/GCMParameterSpec.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/spec/GCMParameterSpec.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/spec/IvParameterSpec.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/spec/IvParameterSpec.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/javax/crypto/spec/SecretKeySpec.jml",
+"postcondition": "this.algorithm == algorithm"
+},
+{
+"file": "specs/javax/crypto/spec/SecretKeySpec.jml",
+"postcondition": "\\fresh(this.key)"
+},
+{
+"file": "specs/javax/crypto/spec/SecretKeySpec.jml",
+"postcondition": "this.key != buf"
+},
+{
+"file": "specs/javax/crypto/spec/SecretKeySpec.jml",
+"postcondition": "this.key.length == buf.length"
+},
+{
+"file": "specs/javax/crypto/spec/SecretKeySpec.jml",
+"postcondition": "java.util.Arrays.equalArrays(this.key, 0, buf, 0, buf.length)"
+},
+{
+"file": "specs/javax/crypto/spec/SecretKeySpec.jml",
+"postcondition": "this.algorithm == algorithm"
+},
+{
+"file": "specs/javax/crypto/spec/SecretKeySpec.jml",
+"postcondition": "this.key != buf"
+},
+{
+"file": "specs/javax/crypto/spec/SecretKeySpec.jml",
+"postcondition": "this.key.length == length"
+},
+{
+"file": "specs/javax/crypto/spec/SecretKeySpec.jml",
+"postcondition": "(\\forall int j; 0 <= j && j < length; key[j] == buf[j + offset])"
+},
+{
+"file": "specs/org/hamcrest/CoreMatchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/CoreMatchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/CoreMatchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/CoreMatchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/CoreMatchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/CoreMatchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/CoreMatchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/Matchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/Matchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/Matchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/Matchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/Matchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/Matchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/hamcrest/Matchers.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLIterable.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLIterator.jml",
+"postcondition": "(o == this) ==> \\result"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLIterator.jml",
+"postcondition": "\\not_assigned(position)"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLList.jml",
+"postcondition": "\\result.size() == 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLList.jml",
+"postcondition": "\\result == _size"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLList.jml",
+"postcondition": "\\result.size() == this.size() + 1"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLSetType.jml",
+"postcondition": "isEmpty() ==> !\\result"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLSetType.jml",
+"postcondition": "s2 == null ==> !\\result"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLSetType.jml",
+"postcondition": "!(s2 instanceof JMLSetType) ==> !\\result"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLSetType.jml",
+"postcondition": "(item == o) ==> (\\result == true)"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLSetType.jml",
+"postcondition": "((item == null) != (o == null)) ==> (\\result == false)"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLSetType.jml",
+"postcondition": "this.isEmpty() ==> \\result == 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLSetType.jml",
+"postcondition": "\\result >= 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLSetType.jml",
+"postcondition": "this.has(\\result)"
+},
+{
+"file": "specs/org/jmlspecs/lang/JMLSetType.jml",
+"postcondition": "\\fresh(\\result)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == \\TYPEof(h)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\erasure(\\result) == h"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result.numargs == 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == \\TYPEof(h, t1)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\erasure(\\result) == h"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result.numargs == 1"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == \\TYPEof(h, t1, t2)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\erasure(\\result) == h"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result.numargs == 2"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == \\TYPEof(h, t1, t2, t3)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\erasure(\\result) == h"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result.numargs == 3"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == numargs"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == args.length"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == (this == t)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == (this != t)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == \\erasure(this)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == \\isarray(this)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == \\arraytype(this)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == \\elemtype(this)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == ((this <: t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/TYPE.jml",
+"postcondition": "\\result == eq(t)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "\\result.length == \\bigint.zero"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "\\result.length == \\bigint.of(a.length)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "(\\forall int i; 0<=i<a.length; \\result[i] == a[i]) && (\\forall \\bigint i; !(0<=i<a.length); \\result[i] == \\array.<TT>empty()[i])"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "\\result == this[i]"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "\\result == this[i]"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "\\result.length == this.length"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "\\result[i] == t"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "(\\forall \\bigint j; 0<=j<length && j != i; \\result[j] == this[j])"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "this[i] == t ==> \\result == this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "\\result.length == j - i"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "(\\forall \\bigint k; 0<=j<\\result.length; \\result[k] == this[k + i])"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "\\result == !eq(a)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/array.jml",
+"postcondition": "\\result == eq(a)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "(Long.MIN_VALUE<=\\result<=Long.MAX_VALUE) && (\\result == i & \\result.longValue() == i)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "(Integer.MIN_VALUE<=\\result<=Integer.MAX_VALUE) && (\\result == i & \\result.intValue() == i)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "(Short.MIN_VALUE<=\\result<=Short.MAX_VALUE) && (\\result == i & \\result.shortValue() == i)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "(Character.MIN_VALUE<=\\result<=Character.MAX_VALUE) && (\\result == i & \\result.charValue() == i)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "(Byte.MIN_VALUE<=\\result<=Byte.MAX_VALUE) && (\\result == i & \\result.byteValue() == i)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (-this)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this + v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this - v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this * v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this / v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this % v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this == v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this != v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this < v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this <= v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this > v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this >= v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this & v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this | v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (this ^ v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result.eq(this.negate().subtract(one))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (~this)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result.value == this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (long) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (int) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (short) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (byte) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (char) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (\\real) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (double) (\\real) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == (float) (\\real) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "this == o ==> \\result == 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "this != o ==> \\result != 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "this >= o ==> \\result >= 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "this <= o ==> \\result <= 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "this > o ==> \\result > 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "this < o ==> \\result < 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/bigint.jml",
+"postcondition": "\\result == this.eq(b)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/locset.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/locset.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/locset.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/locset.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/locset.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/map.jml",
+"postcondition": "has(k) ==> \\result == this[k]"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/map.jml",
+"postcondition": "\\result == !eq(s)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/map.jml",
+"postcondition": "\\result == eq(m)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "this.lo == lo"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "this.hi == hi"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "this.hiIsExclusive == ex"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result.isEmpty()"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result == (hiIsExclusive ? (hi <= lo) : (hi < lo))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result.lo == lo"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result.hi == hi"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result.hiIsExclusive == false"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result.lo == lo"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result.hi == hi"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result.hiIsExclusive == isEx"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "hiIsExclusive == r.hiIsExclusive ==> \\result == (lo == r.lo && hi == r.hi)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "hiIsExclusive && !r.hiIsExclusive ==> \\result == (lo == r.lo && hi == 1 + r.hi)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "!hiIsExclusive && r.hiIsExclusive ==> \\result == (lo == r.lo && 1 + hi == r.hi)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result == !eq(r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/range.jml",
+"postcondition": "\\result == eq(r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (byte) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (short) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (char) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (int) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (long) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (float) this && Float.isFinite(\\result)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (double) this && Double.isFinite(\\result)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\bigint) this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "this == r ==> \\result == 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "this != r ==> \\result != 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "this >= r ==> \\result >= 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "this <= r ==> \\result <= 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "this > r ==> \\result > 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "this < r ==> \\result < 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == eq(r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\real) v & v == (double) \\result"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\real) v & v == (float) \\result"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\real) v & v == (long) \\result & Long.MIN_VALUE<=\\result<=Long.MAX_VALUE"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\real) v & v == (int) \\result & Integer.MIN_VALUE<=\\result<=Integer.MAX_VALUE"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\real) v & v == (char) \\result & Character.MIN_VALUE<=\\result<=Character.MAX_VALUE"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\real) v & v == (short) \\result & Short.MIN_VALUE<=\\result<=Short.MAX_VALUE"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\real) v & v == (byte) \\result & Byte.MIN_VALUE<=\\result<=Byte.MAX_VALUE"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\real) v & v == (\\bigint) \\result"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (\\real) v.value & v.value == (\\bigint) \\result"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this == r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this != r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this >= r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this <= r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this > r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this < r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this + r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this - r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this * r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this / r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (this % r)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/real.jml",
+"postcondition": "\\result == (-this)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result == length"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result >= bigint.zero"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result == (length == 0)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result.length == 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result == this[i]"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result == eq(s)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result == (\\exists \\bigint i; 0<=i<this.length; this[i] == v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result == !eq(s)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result == insert(length, v)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result == insert(bigint.zero, t)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/seq.jml",
+"postcondition": "\\result == this[0]"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result >= 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result == this[x]"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result.size() == \\bigint.one"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result == \\set.<X>empty().add(e)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result.size() == (e == ee ? 1 : 2)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result == \\set.<X>empty().add(e).add(ee)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result.size() == (e == ee ? e == eee ? 1 : 2 : e == eee ? 2 : ee == eee ? 2 : 3)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result == \\set.<X>empty().add(e).add(ee).add(eee)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result == !eq(s)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result == eq(s)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result == (\\forall T t; this.contains(t); s.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result == (!eq(s) && isSubsetOf(s))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "this.contains(x) ==> \\result == this && \\result.size() == this.size()"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "!this.contains(x) ==> \\result.size() == this.size() + 1"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "\\result.contains(x)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "(\\forall T t; t != x; \\result.contains(t) == this.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "!this.contains(x) ==> \\result == this"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "this.contains(x) ==> \\result.size() == this.size() - 1"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "!\\result.contains(x)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "(\\forall T t; t != x; \\result.contains(t) == this.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "(\\forall T t; this.contains(t); \\result.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "(\\forall T t; s.contains(t); \\result.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "(\\forall T t; \\result.contains(t); this.contains(t) | s.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "(\\forall T t; this.contains(t); s.contains(t) ==> \\result.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "(\\forall T t; \\result.contains(t); this.contains(t) & s.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "(\\forall T t; this.contains(t); !s.contains(t) ==> \\result.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/set.jml",
+"postcondition": "(\\forall T t; \\result.contains(t); this.contains(t) & !s.contains(t))"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result.length == \\bigint.zero"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == empty"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result <==> this.length == \\bigint.zero"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result <==> this == empty"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == length"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == value"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == this[i]"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == this[i]"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "this == s <==> \\result == 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "this != s <==> \\result != 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "this >= s <==> \\result >= 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "this <= s <==> \\result <= 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "this > s <==> \\result > 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "this < s <==> \\result < 0"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == !eq(s)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == !this.lt(s)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == s.lt(this)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == !s.lt(this)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == lt(s, \\bigint.zero)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == this[0]"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == this.eq(s)"
+},
+{
+"file": "specs/org/jmlspecs/lang/internal/string.jml",
+"postcondition": "\\result == (k < s.length && (k >= this.length || this[k] < s[k] || lt(s, k + 1)))"
+},
+{
+"file": "specs/org/jmlspecs/runtime/Utils.jml",
+"postcondition": "\\result.size() == 0"
+},
+{
+"file": "specs/org/jmlspecs/runtime/Utils.jml",
+"postcondition": "\\result == v"
+},
+{
+"file": "specs/org/jmlspecs/runtime/Utils.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/org/junit/Assert.jml",
+"postcondition": "true"
+},
+{
+"file": "specs/org/junit/rules/ExpectedException.jml",
+"postcondition": "\\result.exceptionAllowed == false"
+}
+]

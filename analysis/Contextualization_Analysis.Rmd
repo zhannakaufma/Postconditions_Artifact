@@ -1,0 +1,417 @@
+---
+title: "Corpus contextualization (Section III-A3)"
+date: "11/16/2026"
+output:
+  pdf_document:
+    toc: yes
+    fig_crop: false
+    extra_dependencies: ["booktabs", "longtable"]
+  html_document:
+    code_folding: hide
+    toc: yes
+    toc_float: yes
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+for (p in c("tidyverse", "knitr", "effsize", "lme4", "mediation")) if (!require(p, character.only = TRUE)) install.packages(p)
+library(tidyverse); library(knitr); library(effsize); library(lme4); library(mediation)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+# kable with two-line headers: an x_y column name is shown as x over y (LaTeX \shortstack; a space in HTML)
+tbl <- function(df, ...) {
+  if (knitr::is_latex_output()) {
+    names(df) <- ifelse(grepl("_", names(df)), sprintf("\\shortstack{%s}", gsub("_", "\\\\\\\\", names(df))), names(df))
+    df[] <- lapply(df, function(x) if (is.character(x) || is.factor(x)) gsub("_", "\\\\_", as.character(x)) else x)
+    kable(df, format = "latex", booktabs = TRUE, longtable = TRUE, linesep = "", escape = FALSE, ...)   # real LaTeX table: columns size to content, stays in place, no row gaps
+  } else { names(df) <- gsub("_", " ", names(df)); kable(df, ...) }
+}
+set.seed(1)
+```
+
+This document contains the three contextualization analyses of Section III-A3:
+whether the 52 study postconditions are balanced between correct and incorrect
+(Part 1), how they compare with six external corpora (Part 2), and how the 26
+functions compare with the rest of HumanEval and with real-world methods (Part 3).
+
+# Part 1: Balance of correct and incorrect postconditions
+
+## Overview
+
+We show that the correct and incorrect postconditions do not differ significantly
+in complexity, and that postcondition complexity does not explain the effect of 
+correctness on participant accuracy: adding any complexity metric to the accuracy 
+model leaves the correctness effect unchanged, and no metric carries an indirect 
+(mediated) effect.
+
+```{r}
+lt <- read.csv("../data/quant_longtable.csv") %>%
+  rename(Cyclomatic = Cyclomatic_Complexity_Postcondition,
+         Cognitive = Cognitive_Complexity_Postcondition,
+         Halstead_Difficulty = Halstead_Difficulty_Postcondition)
+
+sm_metrics <- c("OperatorCount", "OperatorNesting", "DistinctOperatorCount",
+                "NegationCount", "NegationLevel", "NegationNesting",
+                "AndCount", "OrCount", "ImplicationCount", "ImplicationNesting",
+                "IffCount", "SM_Score")
+
+classic_metrics <- c("Cognitive", "Cyclomatic", "Halstead_Difficulty")
+all_metrics <- c(classic_metrics, sm_metrics)
+smaller_metrics_set <- c("Cognitive", "Cyclomatic", "Halstead_Difficulty",
+                         "SM_Score")
+
+metrics_accuracy <- lt %>%
+  group_by(Function_Seen, Postcondition_Correct) %>%
+  summarise(n_shown = n(), accuracy = mean(Participant_Correct),
+            across(c(Postcondition_Seen, SM_Formula, all_of(all_metrics)), first), .groups = "drop")
+
+cat("Responses:", nrow(lt), " Participants:", n_distinct(lt$Pid),
+    " Functions:", n_distinct(lt$Function_Seen), " Postconditions:", nrow(metrics_accuracy), "\n")
+```
+
+## 2. Postconditions are Balanced in Complexity
+
+No metric differs significantly across the 26 function-matched postcondition
+pairs (paired Wilcoxon signed-rank tests on cyclomatic, cognitive and Halstead
+complexity and on all Shevrin & Maoz properties and their score). 
+The mean within-pair difference is at most 0.2 standard deviations. For some 
+metrics, correct postconditions have higher complexities, and for others,
+incorrect postconditions have higher complexities.
+```{r}
+incorrect <- metrics_accuracy %>% filter(Postcondition_Correct == 0) %>% 
+  arrange(Function_Seen)
+correct   <- metrics_accuracy %>% filter(Postcondition_Correct == 1) %>% 
+  arrange(Function_Seen)
+
+balance_table <- function(metrics) map_dfr(metrics, function(m) {
+  tibble(metric = m,
+         med_incorrect = median(incorrect[[m]]), med_correct = median(correct[[m]]),
+         mean_incorrect = mean(incorrect[[m]]),  mean_correct = mean(correct[[m]]),
+         mean_diff = mean(incorrect[[m]] - correct[[m]]),
+         diff_in_SD = mean(incorrect[[m]] - correct[[m]]) / sd(metrics_accuracy[[m]]),
+         p_val = wilcox.test(incorrect[[m]], correct[[m]], paired = TRUE, exact = FALSE)$p.value)
+})
+construction <- balance_table(all_metrics)
+tbl(construction, digits = 2, caption = "Construction: correct and incorrect
+postconditions do not differ significantly in complexity across functions")
+```
+
+## 2a. Balance in Complexity, shorter table 
+
+Same table as above without the full list of Shevrin & Maoz metrics
+```{r}
+tbl(balance_table(smaller_metrics_set), digits = 2, caption = "Construction: 
+correct and incorrect postconditions do not differ significantly in complexity 
+across functions")
+
+```
+
+## 3. Robustness: postcondition complexity does not explain the accuracy effect
+
+### Complexity scores do not predict accuracy:
+In the final section of this  comparison, we show that no complexity measures 
+improve our participant correctness prediction model and no complexity measures 
+mediate the difference we observed in developer ability to correctly identify 
+correct versus incorrect postconditions. Adding a complexity metric to the 
+accuracy model does not significantly improve fit, minimally changes the OR 
+effect of correctness, and has minimal (and not significant, p>0.10 for all) 
+mediated effect on participant accuracy.
+```{r}
+
+fit <- function(f) glmer(f, data = lt, family = binomial, 
+                         control = glmerControl(optimizer = "bobyqa"))
+m0 <- fit(Participant_Correct ~ Postcondition_Correct + (1 | Pid) + 
+            (1 | Postcondition_Seen))
+models <- list(
+  "+ Cyclomatic" = fit(Participant_Correct ~ Postcondition_Correct + 
+                                   scale(Cyclomatic) + (1 | Pid) + 
+                                   (1 | Postcondition_Seen)),
+  "+ Cognitive" = fit(Participant_Correct ~ Postcondition_Correct + 
+                                   scale(Cognitive) + (1 | Pid) + 
+                                   (1 | Postcondition_Seen)),
+  "+ Halstead difficulty" = fit(Participant_Correct ~ Postcondition_Correct + 
+                                   scale(Halstead_Difficulty) + (1 | Pid) + 
+                                   (1 | Postcondition_Seen)),
+  "+ Shevrin & Maoz score" = fit(Participant_Correct ~ Postcondition_Correct + 
+                                   scale(SM_Score) + (1 | Pid) + 
+                                   (1 | Postcondition_Seen))
+)
+
+set.seed(0)
+mediations <- list(
+  mediation::mediate(lm(Cyclomatic ~ Postcondition_Correct, metrics_accuracy),
+                     lm(accuracy ~ Postcondition_Correct + Cyclomatic, 
+                        metrics_accuracy),
+                     treat = "Postcondition_Correct", mediator = "Cyclomatic", 
+                     boot = TRUE, sims = 1000),
+  mediation::mediate(lm(Cognitive ~ Postcondition_Correct, metrics_accuracy),
+                     lm(accuracy ~ Postcondition_Correct + Cognitive, 
+                        metrics_accuracy),
+                     treat = "Postcondition_Correct", mediator = "Cognitive", 
+                     boot = TRUE, sims = 1000),
+  mediation::mediate(lm(Halstead_Difficulty ~ Postcondition_Correct, 
+                        metrics_accuracy),
+                     lm(accuracy ~ Postcondition_Correct + Halstead_Difficulty, 
+                        metrics_accuracy),
+                     treat = "Postcondition_Correct", mediator = 
+                       "Halstead_Difficulty", boot = TRUE, sims = 1000),
+  mediation::mediate(lm(SM_Score ~ Postcondition_Correct, metrics_accuracy),
+                     lm(accuracy ~ Postcondition_Correct + SM_Score, 
+                        metrics_accuracy),
+                     treat = "Postcondition_Correct", mediator = "SM_Score", 
+                     boot = TRUE, sims = 1000)
+)   
+
+
+correctness_or <- function(m) exp(fixef(m)["Postcondition_Correct"])
+model_table <- rbind(
+  data.frame(Model = "Base (correctness only)", AIC = AIC(m0), BIC = BIC(m0), 
+             LRT_p = NA, Correctness_OR = correctness_or(m0),
+             Indirect_effect = NA, Indirect_p = NA),
+  do.call(rbind, lapply(seq_along(models), function(i) {
+    m <- models[[i]]; med <- mediations[[i]]
+    data.frame(Model = names(models)[i], AIC = AIC(m), BIC = BIC(m), 
+               LRT_p = anova(m0, m)$"Pr(>Chisq)"[2],
+               Correctness_OR = correctness_or(m), Indirect_effect = med$d.avg,
+               Indirect_p = med$d.avg.p)
+  }))
+)
+rownames(model_table) <- NULL
+kable(model_table, digits = c(0, 1, 1, 2, 2, 3, 2),
+      col.names = c("Model", "AIC", "BIC", "LRT p", "Correctness OR", 
+                    "Mediated effect", "Mediation p"),
+      caption = "Adding a complexity metric to the accuracy model does not 
+      significantly improve fit, minimally changes the OR effect of correctness,
+      has minimal mediated effect")
+```
+
+
+# Part 2: Postcondition representativeness
+
+## Overview
+
+Among postconditions with Boolean structure, our 52 stimuli are statistically 
+indistinguishable from PostCondBench's expert refined real world
+postconditions (Python: our median at their 58th percentile, Cliff's delta 0.02,
+p = 0.82; Java: 65th percentile, delta 0.10, p = 0.24) and from nl2postcond's
+Python postconditions (61st, delta 0.16, p = 0.063), and modestly above the
+remaining three corpora (72nd to 78th percentile, delta 0.20 to 0.28). Our set
+contains fewer single predicate postconditions than any corpus (8% against 24%
+to 74%), partly by construction.
+
+We compare against six external corpora using the reading complexity score of
+Shevrin and Maoz (TOSEM 2025) and, for the two Python corpora, the three code
+complexity metrics as well. Comparisons are rank based throughout: the percentile
+of our median within each corpus, Cliff's delta, and a rank sum test.
+
+```{r}
+corpora <- read.csv("../data/postcondition_corpora.csv")
+study <- corpora %>% filter(dataset == "study")
+stopifnot(nrow(study) == 52, !any(is.na(study$SM_Score)))
+table(corpora$dataset)
+
+# Per source: number of postconditions, median and mean reading-complexity score, 
+# and the share whose formula is a single predicate (p1), which the score 
+# cannot rank and which we can't check for non-triviality
+corpora %>%
+  group_by(dataset) %>%
+  summarise(n = n(), median_score = median(SM_Score), mean_score = mean(SM_Score),
+            single_predicate = mean(OperatorCount == 0)) %>%
+  tbl(digits = 2, caption = "Reading-complexity score by source: median, mean, 
+        and share of single-predicate postconditions")
+
+compare <- function(corpus, metric) { 
+  keep <- corpora$OperatorCount > 0
+  a <- study[[metric]][study$OperatorCount > 0]
+  b <- corpora[[metric]][corpora$dataset == corpus & keep]
+  data.frame(corpus, metric, n = length(b), study_med = median(a), 
+             corpus_med = median(b),
+             study_med_prcnt = ecdf(b)(median(a)) * 100,
+             p = wilcox.test(a, b)$p.value, 
+             cliffs_delta = cliff.delta(a, b)$estimate)
+}
+p_text <- function(p) ifelse(p < 0.001, "< 0.001", sprintf("%.3f", p))    
+```
+
+## Structured postconditions
+
+A single predicate postcondition always receives the same base score, so
+the score cannot rank the portion of each corpus that consists of single
+predicates (4/52 of our stimuli, which were filtered for logical triviality).
+We also have no consistent way of filtering out trivial postconditions from 
+this single-predicate set (we did our stimulus filtering manually). 
+The comparison below therefore uses only 
+postconditions with at least one connective.
+```{r}
+rbind(compare("postcondbench_py", "SM_Score"),
+      compare("postcondbench_java", "SM_Score"),
+      compare("nl2postcond_py", "SM_Score"),
+      compare("nl2postcond_java", "SM_Score"),
+      compare("dafnybench", "SM_Score"),
+      compare("jdk_jml", "SM_Score")) %>%
+  mutate(p = p_text(p), across(c(study_med, corpus_med), ~ 
+                                 sprintf("%.2f", .x))) %>%
+  tbl(digits = 2, caption = "Structured postconditions only: where our median 
+        falls among each corpus (percentile), Cliff's delta, rank-sum p")
+```
+
+```{r fig.height=4, fig.width=8}
+all_corpora <- c("study", "nl2postcond_py", "nl2postcond_java", 
+                 "postcondbench_py", "postcondbench_java", "dafnybench", 
+                 "jdk_jml")
+structured <- corpora %>%
+  filter(OperatorCount > 0) %>%
+  mutate(dataset = factor(dataset, levels = rev(all_corpora)),   
+         SM_Score = pmin(SM_Score, quantile(SM_Score, 0.99)))   
+p <- ggplot(structured, aes(x = SM_Score, y = dataset, 
+                            fill = dataset == "study")) +
+  geom_boxplot(outlier.size = 0.6, outlier.alpha = 0.3, width = 0.6) +
+  scale_fill_manual(values = c(`TRUE` = "#c9a227", `FALSE` = "grey85"), 
+                    guide = "none") +
+  labs(x = "Reading-complexity score", y = NULL) +
+  expand_limits(x = 0) +
+  theme_minimal(base_size = 16) +
+  theme(panel.grid.minor = element_blank())
+p
+```
+
+## Python corpora: structured set
+```{r}
+python <- corpora %>% filter(dataset %in% c("study", "nl2postcond_py", 
+                                            "postcondbench_py"), 
+                                            OperatorCount > 0)   
+
+rbind(compare("nl2postcond_py", "Cognitive"),
+      compare("nl2postcond_py", "Cyclomatic"),
+      compare("nl2postcond_py", "Halstead_Difficulty"),
+      compare("postcondbench_py", "Cognitive"),
+      compare("postcondbench_py", "Cyclomatic"),
+      compare("postcondbench_py", "Halstead_Difficulty"))%>%
+  mutate(p = p_text(p), across(c(study_med, corpus_med), ~ 
+                                 sprintf("%.2f", .x))) %>%
+  tbl(digits = 2, caption = "Structured postconditions only: study vs. the 
+        Python corpora on each complexity metric")
+```
+
+```{r fig.height=4, fig.width=8}
+python_metrics <- c("Cognitive", "Cyclomatic", "Halstead_Difficulty")   
+python_long <- python %>%
+  dplyr::select(dataset, all_of(python_metrics)) %>%     
+  pivot_longer(-dataset, names_to = "metric") %>%
+  mutate(metric = factor(metric, levels = python_metrics),
+         dataset = factor(dataset, levels = c("postcondbench_py", 
+                                              "nl2postcond_py", "study"))) %>%  
+  group_by(metric) %>%
+  mutate(value = pmin(value, quantile(value, 0.99))) %>%  
+  ungroup()
+p <- ggplot(python_long, aes(x = value, y = dataset, fill = dataset == "study")) +
+  geom_boxplot(outlier.size = 0.6, outlier.alpha = 0.3, width = 0.6) +
+  facet_wrap(~ metric, scales = "free_x", ncol = 3) +
+  scale_fill_manual(values = c(`TRUE` = "#c9a227", `FALSE` = "grey85"), guide = "none") +
+  expand_limits(x = 0) +                                   # every panel's axis starts at zero
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 16) +
+  theme(panel.grid.minor = element_blank())
+p
+```
+
+
+# Part 3: Function representativeness
+
+## Overview
+
+We show that our 26 functions are representative of HumanEval and contextualize 
+against Postcondbench
+
+```{r}
+functions <- read.csv("../data/function_metrics.csv")
+functions$used <- as.logical(toupper(functions$used))   
+functions$group <- ifelse(functions$source == "postcondbench", "PostCondBench (210)",
+                   ifelse(functions$used, "Survey (26)", "HumanEval (138)"))
+humaneval <- functions %>% filter(source == "humaneval")
+used <- functions %>% filter(used)
+rest <- functions %>% filter(source == "humaneval", !used)
+realworld <- functions %>% filter(source == "postcondbench")
+
+# The 26 vs. one other group on one metric: medians, Cliff's delta with 95% CI
+# (positive = the 26 are larger), rank-sum p.
+compare <- function(metric, other) {
+  a <- used[[metric]]; b <- other[[metric]]
+  d <- cliff.delta(a, b)
+  data.frame(metric, med_used = median(a), med_other = median(b),
+             used_med_prcnt = ecdf(b)(median(a)) * 100,         
+             cliffs_delta = d$estimate, ci_low = d$conf.int[1], 
+             ci_high = d$conf.int[2],
+             p = wilcox.test(a, b)$p.value, row.names = NULL)
+}
+p_text <- function(p) ifelse(p < 0.001, "< 0.001", sprintf("%.3f", p))    
+```
+
+## 1. The 26 functions within HumanEval
+
+Our 26 function-level stimuli did not differ significantly from the rest of 
+HumanEval on cognitive complexity, Halstead difficulty or lines of code, and the 
+observed effect sizes are negligible (Cliff's delta 0.01 to 0.14). On cyclomatic 
+complexity they are slightly more complex (delta = 0.24, p = 0.046).
+
+```{r}
+
+rbind(compare("cognitive", rest),
+      compare("cyclomatic", rest),
+      compare("halstead_difficulty", rest),
+      compare("sloc", rest)) %>%
+  mutate(p = p_text(p)) %>%
+  tbl(digits = 2, caption = "The 26 functions vs. the other 138 HumanEval 
+        problems")
+
+# where the 26 fall within all of HumanEval on cyclomatic complexity 
+# (percentiles of min, median, max)
+ecdf(humaneval$cyclomatic)(c(min(used$cyclomatic), median(used$cyclomatic), 
+                             max(used$cyclomatic)))
+```
+
+## 2. The 26 functions against real-world methods
+
+On cyclomatic complexity the 26 functions are close to these methods 
+(median 4 vs 5, p = 0.062, our median
+at their 47th percentile); on cognitive complexity, which also counts
+nesting, they are simpler (median 3 vs 5, p = 0.006); on Halstead difficulty
+they do not significantly differ (p = 0.121); and they are shorter 
+(median 6.5 vs 13 lines, p < 0.001).
+```{r}
+
+rbind(compare("cognitive", realworld),
+      compare("cyclomatic", realworld),
+      compare("halstead_difficulty", realworld),
+      compare("sloc", realworld)) %>%
+  mutate(p = p_text(p)) %>%
+  tbl(digits = 2, caption = "The 26 functions vs. 210 real-world Python 
+        methods")
+
+```
+
+```{r fig.height=4, fig.width=8}
+## Box plots of the function-level metrics for the three groups.
+metrics <- c("cognitive", "cyclomatic", "halstead_difficulty", "sloc")
+functions_long <- functions %>%
+  mutate(group = factor(group, levels = c("PostCondBench (210)", 
+                                          "HumanEval (138)", "Survey (26)"))) %>%  
+  dplyr::select(group, all_of(metrics)) %>%    
+  pivot_longer(-group, names_to = "metric") %>%
+  mutate(metric = dplyr::recode(metric, cyclomatic = "Cyclomatic complexity", 
+                                cognitive = "Cognitive complexity",
+                         halstead_difficulty = "Halstead difficulty", 
+                         sloc = "Source lines"))
+
+p <- ggplot(functions_long, aes(x = value, y = group, 
+                                fill = group == "Survey (26)")) +
+  geom_boxplot(outlier.size = 0.6, outlier.alpha = 0.4, width = 0.6) +
+  facet_wrap(~ metric, scales = "free_x", ncol = 2) +
+  scale_fill_manual(values = c(`TRUE` = "#c9a227", `FALSE` = "grey85"), 
+                    guide = "none") +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 16) +
+  theme(panel.grid.minor = element_blank())
+p
+```
+
