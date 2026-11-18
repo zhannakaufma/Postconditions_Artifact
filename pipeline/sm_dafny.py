@@ -33,7 +33,7 @@ Formula (or an Exception) per expression.
 """
 import json, os, re, shutil, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from libs.shevrin_maoz_metrics import Formula, AND, OR, IMPLIES, IFF, conditional
+from libs.shevrin_maoz_metrics import Formula, AND, OR, IMPLIES, IFF, conditional, binder, hoisting
 from sm_java import BOOL_METHOD_NAME
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -116,10 +116,11 @@ def to_tree(n):
         ops, operands = n['ops'], n['operands']
         return Formula(op=AND, children=[Formula(predicate=f"{operands[i]['s']} {SYMBOL.get(ops[i], ops[i])} {operands[i + 1]['s']}") for i in range(len(ops))], chain=True)
     if OPEN_QUANTIFIERS and t in ('ForallExpr', 'ExistsExpr'):                   # forall x | R :: B
-        body = to_tree(n['term'])
-        if n.get('range') is None: return body
-        return Formula(op=IMPLIES if t == 'ForallExpr' else AND, children=[to_tree(n['range']), body])
-    if OPEN_QUANTIFIERS and 'cond1' in n:                                        # x == f(if C then A else B): a case split on the atom
+        with binder():
+            body = to_tree(n['term'])
+            if n.get('range') is None: return body
+            return Formula(op=IMPLIES if t == 'ForallExpr' else AND, children=[to_tree(n['range']), body])
+    if hoisting() and 'cond1' in n:                                             # x == f(if C then A else B): a case split on the atom
         from sm_jml import hoist
         return hoist(n, lambda text: syntax_trees([text])[0])
     return Formula(predicate=n['s'])

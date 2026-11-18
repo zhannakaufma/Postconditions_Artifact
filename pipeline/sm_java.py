@@ -23,7 +23,7 @@ isEmpty, isX, hasX, canX, allMatch, ...).
 """
 import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from libs.shevrin_maoz_metrics import Formula, AND, OR, IMPLIES, IFF, conditional, DECIDED
+from libs.shevrin_maoz_metrics import Formula, AND, OR, IMPLIES, IFF, conditional, DECIDED, binder, hoisting
 
 BOOL_METHOD_NAME = re.compile(r'^(equals|contains\w*|isEmpty|startsWith|endsWith|matches|allMatch|anyMatch|noneMatch|isInstance|is[A-Z]\w*|has[A-Z]\w*|can[A-Z]\w*)$')
 COMPARISON = {'==', '!=', '<', '>', '<=', '>='}
@@ -110,15 +110,15 @@ def parse_java(expr):
             if OPEN_QUANTIFIERS and name in ('allMatch', 'anyMatch', 'noneMatch') and len(args) == 1 and args[0].type == 'lambda_expression':
                 body = args[0].child_by_field_name('body')
                 if body.type != 'block':
-                    f = conv(body).negate() if name == 'noneMatch' else conv(body)
+                    with binder(): f = conv(body).negate() if name == 'noneMatch' else conv(body)
                     receiver = n.child_by_field_name('object')                                     # s.filter(x -> R).allMatch(...)
                     if receiver is not None and receiver.type == 'method_invocation' and text(receiver.child_by_field_name('name')) == 'filter':
                         fargs = receiver.child_by_field_name('arguments').named_children
                         if len(fargs) == 1 and fargs[0].type == 'lambda_expression' and fargs[0].child_by_field_name('body').type != 'block':
-                            rng = conv(fargs[0].child_by_field_name('body'))
+                            with binder(): rng = conv(fargs[0].child_by_field_name('body'))
                             return Formula(op=AND if name == 'anyMatch' else IMPLIES, children=[rng, f])
                     return f
-        if OPEN_QUANTIFIERS:
+        if hoisting():
             cond = first_conditional(n)
             if cond is not None:                                                     # x.equals(C ? A : B): a case split on the atom
                 c, a, b = cond.named_children

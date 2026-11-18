@@ -35,7 +35,7 @@ Mapping rules:
   A == B  with a Boolean-shaped side    ->  A <-> B
   A != B  with a Boolean-shaped side    ->  !(A <-> B)
   A <= B  with two Boolean-shaped sides ->  A -> B
-  X == True  /  X == False              ->  X  /  !X
+  X == True  /  X == False              ->  X  /  !X       (Python: also X is True / X is False)
   all(B for x in xs)                    ->  B          (the reader still parses the body)
   all(B for x in xs if R)               ->  R -> B     (a generator filter is a range, as in JML and Dafny)
   any(B for x in xs) / any(... if R)    ->  B  /  R & B
@@ -204,11 +204,12 @@ def to_tree(node):
 
     if isinstance(node, ast.Compare) and len(node.ops) == 1:
         left, right, op = node.left, node.comparators[0], node.ops[0]
-        if isinstance(op, (ast.Eq, ast.NotEq)):
-            for x, y in ((left, right), (right, left)):                # X == True  /  X == False
+        if isinstance(op, (ast.Eq, ast.NotEq, ast.Is, ast.IsNot)):
+            for x, y in ((left, right), (right, left)):                # X == True / X is True  /  X == False / X is False
                 if isinstance(y, ast.Constant) and isinstance(y.value, bool):
                     x = to_tree(x)
-                    return x if (y.value is True) == isinstance(op, ast.Eq) else x.negate()
+                    return x if (y.value is True) == isinstance(op, (ast.Eq, ast.Is)) else x.negate()
+        if isinstance(op, (ast.Eq, ast.NotEq)):
             if is_boolean_shaped(left) or is_boolean_shaped(right):    # A == B  ->  A <-> B
                 tree = Formula(op=IFF, children=[to_tree(left), to_tree(right)])
                 return tree if isinstance(op, ast.Eq) else tree.negate()
@@ -224,14 +225,15 @@ def to_tree(node):
 
     if OPEN_QUANTIFIERS and isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id in ('all', 'any') \
             and len(node.args) == 1 and isinstance(node.args[0], (ast.GeneratorExp, ast.ListComp)):   # all(B for x in xs if R)
-        body = to_tree(node.args[0].elt)
-        ifs = [to_tree(c) for g in node.args[0].generators for c in g.ifs]
+        with binder():
+            body = to_tree(node.args[0].elt)
+            ifs = [to_tree(c) for g in node.args[0].generators for c in g.ifs]
         if not ifs:
             return body
         rng = ifs[0] if len(ifs) == 1 else Formula(op=AND, children=ifs)
         return Formula(op=IMPLIES if node.func.id == 'all' else AND, children=[rng, body])
 
-    if OPEN_QUANTIFIERS:
+    if hoisting():
         cond = first_conditional(node)
         if cond is not None:                                               # x == len(A if C else B): a case split on the atom
             test = ast.unparse(cond.test)
@@ -260,6 +262,18 @@ def resolve(node, test, value):
     return Resolve().visit(copy.deepcopy(node))
 
 DECIDED = {}   # conditions already decided while hoisting (text -> True/False), shared with the Java/JML/Dafny front ends
+
+BINDER_DEPTH = 0   # > 0 while converting the body or range of a quantifier (all/any, allMatch, \forall, forall): the
+                   # conditional may depend on the bound variable, so conditionals inside a predicate are not hoisted there
+class binder:
+    def __enter__(self):
+        global BINDER_DEPTH; BINDER_DEPTH += 1
+    def __exit__(self, *exc):
+        global BINDER_DEPTH; BINDER_DEPTH -= 1
+
+def hoisting():
+    """Whether a conditional inside a predicate is split into cases here (never inside a quantifier body)."""
+    return OPEN_QUANTIFIERS and BINDER_DEPTH == 0
 
 
 def parse(expression):

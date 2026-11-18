@@ -74,7 +74,7 @@ cat("Responses:", nrow(lt), " Participants:", n_distinct(lt$Pid),
 No metric differs significantly across the 26 function-matched postcondition
 pairs (paired Wilcoxon signed-rank tests on cyclomatic, cognitive and Halstead
 complexity and on all Shevrin & Maoz properties and their score). 
-The mean within-pair difference is at most 0.2 standard deviations. For some 
+The mean within-pair difference is at most 0.21 standard deviations. For some 
 metrics, correct postconditions have higher complexities, and for others,
 incorrect postconditions have higher complexities.
 ```{r}
@@ -192,10 +192,10 @@ kable(model_table, digits = c(0, 1, 1, 2, 2, 3, 2),
 
 Among postconditions with Boolean structure, our 52 stimuli are statistically 
 indistinguishable from PostCondBench's expert refined real world
-postconditions (Python: our median at their 58th percentile, Cliff's delta 0.02,
-p = 0.82; Java: 65th percentile, delta 0.10, p = 0.24) and from nl2postcond's
-Python postconditions (61st, delta 0.16, p = 0.063), and modestly above the
-remaining three corpora (72nd to 78th percentile, delta 0.20 to 0.28). Our set
+postconditions (Python: our median at their 57th percentile, Cliff's delta 0.01,
+p = 0.93; Java: 64th percentile, delta 0.07, p = 0.41) and from nl2postcond's
+Python postconditions (59th, delta 0.13, p = 0.106), and modestly above the
+remaining three corpora (72nd to 77th percentile, delta 0.17 to 0.26). Our set
 contains fewer single predicate postconditions than any corpus (8% against 24%
 to 74%), partly by construction.
 

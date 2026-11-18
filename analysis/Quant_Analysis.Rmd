@@ -461,9 +461,9 @@ plot(density(residuals(model1)))
 
 In the full nl2postcond corpus from which our stimuli were drawn, incorrect
 postconditions are more complex than correct ones:
-cyclomatic complexity (means 2.69 vs 2.18), cognitive complexity, Halstead
-difficulty and the Shevrin and Maoz reading-complexity score (all Wilcoxon
-rank-sum p < 0.001, Cliff's delta 0.19 to 0.25). This is a property of
+cyclomatic complexity (means 3.00 vs 2.69), cognitive complexity, Halstead
+difficulty and the Shevrin and Maoz reading-complexity score (Wilcoxon
+rank-sum p <= 0.014, Cliff's delta 0.10 to 0.20). This is a property of
 LLM-generated postconditions, not of our stimulus set: whether our 26
 correct/incorrect pairs are balanced on complexity, and whether complexity
 explains the accuracy effect, is analysed at the postcondition level in

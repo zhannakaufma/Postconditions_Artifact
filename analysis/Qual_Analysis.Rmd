@@ -148,7 +148,7 @@ build_sankey <- function(df) {
                 Source = "source", Target = "target",
                 Value = "value", NodeID = "name",
                 LinkGroup = "link_group",
-                fontSize = 40, nodeWidth = 150,
+                fontSize = 40, nodeWidth = 190,
                 width = 960, height = 500,
                 colourScale = networkD3::JS(color_scale_2),
                 sinksRight = TRUE,
@@ -178,7 +178,7 @@ build_sankey <- function(df) {
           .style('font-size', '0');
         d3.selectAll('.node').each(function(d) {
           var nodeHeight = d3.select(this).select('rect').attr('height');
-          var nodeWidth = 150; // match your nodeWidth parameter
+          var nodeWidth = 190; // match your nodeWidth parameter
           var parts = d.name.split(' ');
           var noSplit = ['Pos Example', 'Neg Example'];
           var parts = d.name.split(' ');
@@ -187,7 +187,7 @@ build_sankey <- function(df) {
               .attr('x', nodeWidth / 2)
               .attr('y', nodeHeight / 2)
               .attr('text-anchor', 'middle')
-              .style('font-size', '22px')
+              .style('font-size', '32px')
               .style('font-family', 'Times, serif')
               .style('font-weight', 'bold')
               .style('fill', 'black')
@@ -207,7 +207,7 @@ build_sankey <- function(df) {
               .attr('y', nodeHeight / 2)
               .attr('dy', '0.35em')
               .attr('text-anchor', 'middle')
-              .style('font-size', '22px')
+              .style('font-size', '32px')
               .style('font-family', 'Times, serif')
               .style('font-weight', 'bold')
               .style('fill', 'black')
@@ -249,7 +249,7 @@ if (knitr::is_html_output()) {
     grid::pushViewport(vp)
     grid::grid.raster(panels[[i]], y = 0.46, height = 0.86, interpolate = TRUE)
     grid::grid.text(c("Original Postcondition - Correct", "Original Postcondition - Incorrect")[i], x = 0.5, y = 0.975, just = c("centre", "top"),
-                    gp = grid::gpar(fontsize = 22, fontface = "bold", fontfamily = "serif"))
+                    gp = grid::gpar(fontsize = 26, fontface = "bold", fontfamily = "serif"))
     grid::popViewport()
   }
   grid::grid.lines(x = c(0, 1), y = c(0.5, 0.5), gp = grid::gpar(lwd = 3))   

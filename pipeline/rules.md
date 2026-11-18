@@ -17,11 +17,11 @@ Shevrin and Maoz's score estimates how hard a propositional Boolean formula is t
 - **Conditionals inside a predicate.** A conditional expression anywhere inside a predicate splits the predicate into one case per branch.
     `x == len(A if C else B) + 1` becomes `(C -> x == len(A) + 1) & (!C -> x == len(B) + 1)`, i.e. `(p1 -> p2) & (!p1 -> p3)`.
     `(a if C else b) + (c if C else d) == n` has one condition, `C`, in two places, so there are only 2 branches: `(C -> a + c == n) & (!C -> b + d == n)`, i.e. `(p1 -> p2) & (!p1 -> p3)`.
-    Exception: inside a lambda or a comprehension the conditional may depend on the bound variable, so it stays inside the predicate: `sum(1 if x > 0 else 0 for x in xs) == n` is `p1`.
+    Exception: inside a quantifier body, a lambda or a comprehension the conditional may depend on the bound variable, so it stays inside the predicate: `sum(1 if x > 0 else 0 for x in xs) == n` is `p1`.
 - **Boolean literals.** Shevrin and Maoz's formulas have no constants (every atom is a propositional variable), so a literal `True` or `False` cannot be a predicate. It is removed by the usual identities:
-    `X == True` is `X`, i.e. `p1`; `X == False` is `!X`, i.e. `!p1`.
+    `X == True` is `X`, i.e. `p1`; `X == False` is `!X`, i.e. `!p1`. In Python, `X is True` and `X is False` are read the same way.
     `A if C else True` is `C -> A`, i.e. `p1 -> p2`; `A if C else False` is `C & A`, i.e. `p1 & p2`; `True if C else B` is `C | B`, i.e. `p1 | p2`.
     `X and True` is `X`, i.e. `p1`.
-    A postcondition that is nothing but a literal has no formula at all; it is counted as one predicate, the lowest possible score. `X or True` is always true, so it collapses to a bare literal (next line).
+    A postcondition that is nothing but a literal has no formula at all; it is counted as one predicate, the lowest possible score. `X or True` is always true, so it collapses to a bare literal.
 - **Old values and local names.** `old(E)` / `\old(E)` with Boolean structure inside is translated as `E`, with `old` kept on each predicate: `old(a and b)` becomes `old(a) & old(b)`, i.e. `p1 & p2`; a Dafny `var x := e; B` is translated as `B`.
 - **Everything else is a predicate:** arithmetic, calls, field accesses, single comparisons, and a filter inside a value-building expression such as `sorted(... if R)`, `sum(... if R)` or a set or list comprehension.

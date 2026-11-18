@@ -32,7 +32,7 @@ method whose name sounds Boolean (BOOL_METHOD_NAME, shared with sm_java.py).
 """
 import json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from libs.shevrin_maoz_metrics import Formula, AND, OR, IMPLIES, IFF, find_java, conditional, DECIDED
+from libs.shevrin_maoz_metrics import Formula, AND, OR, IMPLIES, IFF, find_java, conditional, DECIDED, binder, hoisting
 from sm_java import BOOL_METHOD_NAME
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -115,20 +115,22 @@ def to_tree(n):
     if t == 'MethodCallExpr' and n['name'] == '\\old' and 'old_arg' in n and is_boolean_shaped(n['old_arg']):   # \old(a && b)
         return to_tree(n['old_arg']).rename(lambda p: f'\\old({p})')
     if OPEN_QUANTIFIERS and t == 'MethodCallExpr' and n['name'] in ('allMatch', 'anyMatch', 'noneMatch') and 'lambda_body' in n:   # filter(x -> R).allMatch(x -> B)
-        body = to_tree(n['lambda_body'])
-        if n['name'] == 'noneMatch': body = body.negate()
-        if 'filter_body' not in n: return body
-        return Formula(op=AND if n['name'] == 'anyMatch' else IMPLIES, children=[to_tree(n['filter_body']), body])
+        with binder():
+            body = to_tree(n['lambda_body'])
+            if n['name'] == 'noneMatch': body = body.negate()
+            if 'filter_body' not in n: return body
+            return Formula(op=AND if n['name'] == 'anyMatch' else IMPLIES, children=[to_tree(n['filter_body']), body])
     if OPEN_QUANTIFIERS and t == 'JmlMultiCompareExpr':                          # a <= b < c  ->  (a <= b) & (b < c)
         ops, operands = n['ops'], n['operands']
         return Formula(op=AND, children=[Formula(predicate=f"{operands[i]['s']} {ops[i]} {operands[i + 1]['s']}") for i in range(len(ops))], chain=True)
     if OPEN_QUANTIFIERS and t == 'JmlQuantifiedExpr' and n.get('binder', '').upper() in ('FORALL', 'EXISTS'):   # \forall T x; R; B
         exprs = [x for x in n['exprs'] if x is not None]
-        if len(exprs) == 1: return to_tree(exprs[0])
-        if len(exprs) == 2:
-            rng, body = to_tree(exprs[0]), to_tree(exprs[1])
-            return Formula(op=IMPLIES if n['binder'].upper() == 'FORALL' else AND, children=[rng, body])
-    if OPEN_QUANTIFIERS and 'cond1' in n:                                        # x.equals(C ? A : B): a case split on the atom
+        with binder():
+            if len(exprs) == 1: return to_tree(exprs[0])
+            if len(exprs) == 2:
+                rng, body = to_tree(exprs[0]), to_tree(exprs[1])
+                return Formula(op=IMPLIES if n['binder'].upper() == 'FORALL' else AND, children=[rng, body])
+    if hoisting() and 'cond1' in n:                                             # x.equals(C ? A : B): a case split on the atom
         return hoist(n, lambda text: syntax_trees([text])[0])
     return Formula(predicate=n['s'])
 
