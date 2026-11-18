@@ -114,7 +114,8 @@ def is_literal(f, value):
     if f.predicate not in BOOL_LITERALS: return False
     return ((f.predicate.lower() == 'true') != f.negated) == value
 
-SIMPLIFY_LITERALS = os.environ.get('SM_SIMPLIFY_LITERALS', '1') != '0'   # set SM_SIMPLIFY_LITERALS=0 to keep Boolean literals as predicates (sensitivity check)
+SIMPLIFY_LITERALS = os.environ.get('SM_SIMPLIFY_LITERALS', '1') != '0'
+GUARD_ONCE = os.environ.get('SM_GUARD_ONCE', '0') == '1'   # set SM_GUARD_ONCE=1 to count a compound if-then-else guard once (sensitivity check)   # set SM_SIMPLIFY_LITERALS=0 to keep Boolean literals as predicates (sensitivity check)
 
 def conditional(c, a, b):
     """C ? A : B  ->  (C -> A) & (!C -> B), simplified when a branch is a Boolean literal."""
@@ -125,6 +126,9 @@ def conditional(c, a, b):
     if is_literal(b, False): return Formula(op=AND, children=[c, a])
     if is_literal(a, True):  return Formula(op=OR, children=[c, b])
     if is_literal(a, False): return Formula(op=AND, children=[c.negate(), b])
+    if GUARD_ONCE and c.predicate is None:                                   # sensitivity check: a compound guard is comprehended once;
+        c2 = Formula(predicate='guard:' + to_formula(c))                       # the else-branch sees it as a single predicate
+        return Formula(op=AND, children=[Formula(op=IMPLIES, children=[c, a]), Formula(op=IMPLIES, children=[c2.negate(), b])])
     return Formula(op=AND, children=[Formula(op=IMPLIES, children=[c, a]), Formula(op=IMPLIES, children=[c.negate(), b])])
 
 def simplify(f):

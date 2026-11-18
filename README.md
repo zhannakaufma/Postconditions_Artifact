@@ -80,3 +80,7 @@ curl -L -o tools/jmltk-cli-1.0.0-all.jar https://github.com/jmltoolkit/jmltk/rel
 javac -cp tools/jmltk-cli-1.0.0-all.jar -d sm_jml sm_jml/SMJml.java
 dotnet build -c Release sm_dafny        # .NET 8 SDK; fetches DafnyCore 4.11.0 from NuGet
 ```
+
+## AI-Generated Code
+
+This repository includes AI-generated code. During our corpus contextualization work, we used Claude Fable 5.1 generate/refine code snippets. The authors take responsibility for all of the claims in our paper and all of the contents of our files. All AI-suggested code was reviewed, edited, and tested by the authors.

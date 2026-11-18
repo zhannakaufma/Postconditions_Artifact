@@ -62,6 +62,7 @@ lt$Assessment <- factor(lt$Assessment,
 
 ```
 
+# Relationships
 ```{r}
 library(tidyverse)
 library(networkD3)
@@ -86,6 +87,7 @@ df_post_incorrect <- df_long %>% filter(Postcondition == "incorrect")
 ```
 
 
+# Sankeys
 ```{r}
 make_links <- function(data, from_col, to_col) {
   data %>%
@@ -93,7 +95,8 @@ make_links <- function(data, from_col, to_col) {
     summarise(value = n_distinct(Pid), .groups = "drop") %>%
     rename(source = 1, target = 2)
 }
-# One Sankey per ground truth: strategies used (middle) by how the participant assessed the postcondition (right)
+
+
 build_sankey <- function(df) {
   links_2 <- bind_rows(
     make_links(df, "Approach", "Assessment.Label")
@@ -124,7 +127,7 @@ build_sankey <- function(df) {
       TRUE                              ~ "#888780"
     ))
 
-  # Build color scale from display names (spaces), matching what nodes_display will have
+
   display_names <- gsub("\\.", " ", gsub("_", " ", node_colors_2$name))
   color_scale_2 <- paste0(
     'd3.scaleOrdinal().domain([',
@@ -152,6 +155,24 @@ build_sankey <- function(df) {
                 iterations = 0) %>%
     htmlwidgets::onRender("
       function(el) {
+        // Stretch the right column so its first and last nodes line up with the top and bottom of the left column
+        // (the sankey layout uses one padding for every column, so a 2-node column ends short of a 5-node one).
+        var nodeData = d3.select(el).selectAll('.node').data();
+        var maxX = d3.max(nodeData, function(d) { return d.x; });
+        var left = nodeData.filter(function(d) { return d.x < maxX; });
+        var right = nodeData.filter(function(d) { return d.x === maxX; }).sort(function(a, b) { return a.y - b.y; });
+        if (left.length && right.length > 1) {
+          var top = d3.min(left, function(d) { return d.y; });
+          var bottom = d3.max(left, function(d) { return d.y + d.dy; });
+          var gap = (bottom - top - d3.sum(right, function(d) { return d.dy; })) / (right.length - 1), y = top;
+          right.forEach(function(d) { d.y = y; y += d.dy + gap; });
+          d3.select(el).selectAll('.node').attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; });
+          d3.select(el).selectAll('.link').attr('d', function(d) {   // redraw the links from the moved node positions
+            var x0 = d.source.x + d.source.dx, x1 = d.target.x, xm = (x0 + x1) / 2;
+            var y0 = d.source.y + d.sy + d.dy / 2, y1 = d.target.y + d.ty + d.dy / 2;
+            return 'M' + x0 + ',' + y0 + 'C' + xm + ',' + y0 + ' ' + xm + ',' + y1 + ' ' + x1 + ',' + y1;
+          });
+        }
         d3.selectAll('.node text')
           .style('font-weight', 'bold')
           .style('font-size', '0');
@@ -166,7 +187,8 @@ build_sankey <- function(df) {
               .attr('x', nodeWidth / 2)
               .attr('y', nodeHeight / 2)
               .attr('text-anchor', 'middle')
-              .style('font-size', '25px')
+              .style('font-size', '22px')
+              .style('font-family', 'Times, serif')
               .style('font-weight', 'bold')
               .style('fill', 'black')
               .style('pointer-events', 'none')
@@ -185,7 +207,8 @@ build_sankey <- function(df) {
               .attr('y', nodeHeight / 2)
               .attr('dy', '0.35em')
               .attr('text-anchor', 'middle')
-              .style('font-size', '25px')
+              .style('font-size', '22px')
+              .style('font-family', 'Times, serif')
               .style('font-weight', 'bold')
               .style('fill', 'black')
               .style('pointer-events', 'none')
@@ -210,22 +233,29 @@ sankey_incorrect_percep <- build_sankey(df_post_incorrect)
 sankey_correct_percep   <- build_sankey(df_post_correct)
 ```
 
-```{r}
-show_sankey <- function(w) {                                   # live widget in HTML; PhantomJS screenshot in PDF (no browser needed)
-  if (knitr::is_html_output()) return(w)
-  html <- tempfile(fileext = ".html"); png <- tempfile(fileext = ".png")
-  htmlwidgets::saveWidget(w, html, selfcontained = TRUE)
-  webshot::webshot(html, png, vwidth = 960, vheight = 500, delay = 1)
-  knitr::include_graphics(png)
+```{r sankey-figure, fig.cap="Strategies used (middle) by how participants assessed the postcondition (right), for ground-truth correct and incorrect postconditions.", out.width="85%", fig.align="center"}
+if (knitr::is_html_output()) {
+  htmltools::tagList(sankey_correct_percep, sankey_incorrect_percep)        
+} else {
+  shot <- function(w) { html <- tempfile(fileext = ".html"); png <- tempfile(fileext = ".png")
+    htmlwidgets::saveWidget(w, html, selfcontained = TRUE)
+    webshot::webshot(html, png, vwidth = 960, vheight = 500, delay = 1, zoom = 3); png::readPNG(png) }
+  panels <- list(a = shot(sankey_correct_percep), b = shot(sankey_incorrect_percep))
+  out <- Sys.getenv("SANKEY_PDF", tempfile(fileext = ".pdf"))
+  pdf(out, width = 9.6, height = 10.6)
+  grid::grid.newpage()
+  for (i in 1:2) {
+    vp <- grid::viewport(y = c(0.75, 0.25)[i], height = 0.5)
+    grid::pushViewport(vp)
+    grid::grid.raster(panels[[i]], y = 0.46, height = 0.86, interpolate = TRUE)
+    grid::grid.text(c("Original Postcondition - Correct", "Original Postcondition - Incorrect")[i], x = 0.5, y = 0.975, just = c("centre", "top"),
+                    gp = grid::gpar(fontsize = 22, fontface = "bold", fontfamily = "serif"))
+    grid::popViewport()
+  }
+  grid::grid.lines(x = c(0, 1), y = c(0.5, 0.5), gp = grid::gpar(lwd = 3))   
+  invisible(dev.off())
+  knitr::include_graphics(out)
 }
-```
-
-```{r sankey-correct, fig.cap="Ground-truth correct postconditions: strategies used, by how participants assessed them.", out.width="100%"}
-show_sankey(sankey_correct_percep)
-```
-
-```{r sankey-incorrect, fig.cap="Ground-truth incorrect postconditions: strategies used, by how participants assessed them.", out.width="100%"}
-show_sankey(sankey_incorrect_percep)
 ```
 
 

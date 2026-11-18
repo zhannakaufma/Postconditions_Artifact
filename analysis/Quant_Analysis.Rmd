@@ -382,7 +382,7 @@ plot_data <- plot_data %>%
       "\nParticipant: ", ifelse(Participant_Correct == 1, "Correct", "Incorrect"),
       " (", sprintf("%.1f%%", pct), ")"
     ),
-       Postcondition_label = ifelse(Postcondition_Correct == 1, "Yes", "No")  # ← Use ifelse instead
+       Postcondition_label = ifelse(Postcondition_Correct == 1, "Yes", "No")  # Use ifelse instead
   )
 
 p <- ggplot(plot_data, aes(x = factor(Accuracy_Confidence), y = percentage, fill = factor(Postcondition_label))) +
@@ -511,26 +511,28 @@ aggregate(Perceived.Capture ~ Postcondition_Correct, data = lt, FUN = mean)
 
 We applied the proposed postcondition taxonomy from prior work~\cite{Endres24}
 to investigate whether particular taxonomized patterns were more or less 
-associated with participant correctness. 
-For each construction pattern, we compared accuracy on postconditions that 
-contained it versus accuracy on those that did not. Assertions with arithmetic 
-equalities ($+14.7$ percentage points, 14/52 postconditions) and 
-type checks ($+10.5$ pp, 8/52) had the largest advantages. Assertions with 
-element-property checks ($-11.4$ pp, 8/52) and implications ($-9.6$ pp, 37/52) 
-had the largest disadvantages.
+associated with participant correctness. We found that the existence of 
+type checks ($\chi^2 = 7.99$, $p = 0.005$) and arithmetic equalities 
+($\chi^2 = 9.64$, $p = 0.002$) were significant predictors of participant 
+correctness, with implications ($\chi^2 = 3.84$, $p = 0.05$) and element 
+properties ($\chi^2 = 3.26$, $p = 0.07$) having marginal significance. 
+The existence of type checks ($OR = 2.10$) and arithmetic equalities 
+($OR = 2.07$) increased participant correctness, while the existence of 
+implications ($OR = 0.69$) and element properties ($OR = 0.66$) decreased 
+participant correctness. 
 ```{r warning=FALSE}
-patterns <- c("Type_Check", "Format_Check", "Arithmetic_Bounds", "Arithmetic_Equality", "Container_Property",
-              "Element_Property", "Forall_Element_Property", "Implication", "Null_Check")
-postconditions <- unique(lt[, c("Postcondition_Seen", patterns)])
-taxonomy <- data.frame(
-  pattern = patterns,
-  postconditions = colSums(postconditions[, patterns]),
-  accuracy_with = sapply(patterns, function(p) mean(lt$Participant_Correct[lt[[p]] == 1])),
-  accuracy_without = sapply(patterns, function(p) mean(lt$Participant_Correct[lt[[p]] == 0])),
-  accuracy_diff = sapply(patterns, function(p) mean(lt$Participant_Correct[lt[[p]] == 1])) - sapply(patterns, function(p) mean(lt$Participant_Correct[lt[[p]] == 0]))
+model_full <- glmer(
+  Participant_Correct ~ Type_Check + Format_Check + Arithmetic_Bounds + 
+    Arithmetic_Equality + Container_Property + Element_Property + 
+    Forall_Element_Property + Implication + Null_Check + (1 | Pid),
+  data = lt,
+  family = binomial,
+  na.action = na.fail
 )
-taxonomy[order(-taxonomy$accuracy_with), ]
 
+Anova(model_full)
+
+exp(fixef(model_full))
 ```
 
 
@@ -707,7 +709,7 @@ undetected error looks just like biased acceptance. However, we did fit a signal
 detection model predicting participant response from postcondition correctness. 
 Participants did distinguish correct from incorrect postconditions (sensitivity 
 d’ = 0.70, p < 0.001), and when unsure they leaned toward calling a 
-postcondition correct (criterion c = −0.37, p < 0.001). The three observations 
+postcondition correct (criterion c = -0.37, p < 0.001). The three observations 
 above indicate that this lean is at least partially due to a difference in 
 cognitive difficulty. 
 ```{r}

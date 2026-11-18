@@ -8,17 +8,17 @@ has_close_elements,6,0,0,1,as-needed,0,0,1,0,0,1,0,0,Clause Comparison
 has_close_elements,7,1,1,1,bottom-up,0,0,1,1,0,2,1,0,"Logic Walkthrough, Clause Comparison"
 has_close_elements,8,0,0,1,top-down,1,1,1,0,0,3,1,1,"Negative Example, Clause Comparison, Positive Example, Negative Example"
 has_close_elements,9,1,1,1,top-down,1,0,0,1,1,3,1,1,"Logic Walkthrough, Positive Example, Intuition"
-has_close_elements,10,0,0,1,top-down,0,1,1,0,0,2,1,0,"Negative Example, Clause Comparison, Negative Example"
+has_close_elements,10,0,0,1,top-down,0,1,1,0,0,2,1,0,"Clause Comparison, Negative Example, Clause Comparison, Negative Example"
 choose_num,1,0,0,1,as-needed,0,1,1,0,0,2,1,0,"Clause Comparison, Negative Example, Clause Comparison"
 choose_num,2,1,1,1,top-down,0,0,0,0,1,1,0,0,Intuition
-choose_num,3,1,1,1,top-down,1,0,1,1,0,3,1,1,"Logic walkthrough, Clause Comparison, Logic Walkthrough, Clause Comparison, Logic Walkthrough, Positive Examples"
+choose_num,3,1,1,1,top-down,1,0,1,1,0,3,1,1,"Clause Comparison, Logic Walkthrough, Clause Comparison, Logic Walkthrough, Positive Examples"
 choose_num,4,0,0,1,top-down,0,1,0,0,0,1,0,0,Negative Example
 choose_num,5,0,0,1,top-down,0,0,0,1,0,1,0,0,Logic Walkthrough
-choose_num,6,0,0,1,as-needed,1,1,1,0,0,3,1,1,"Clause Comparison, Positive Example, Negative Example, Clause Comparison, Negative Example"
+choose_num,6,0,0,1,as-needed,1,1,1,0,0,3,1,1,"Clause Comparison, Positive Example, Negative Example, Clause Comparison"
 choose_num,7,0,0,1,bottom-up,0,0,1,0,0,1,0,0,Clause Comparison
 choose_num,8,1,1,1,top-down,1,0,0,1,0,2,1,0,"Positive Example, Logic Walkthrough, Positive Example, Logic Walkthrough"
-choose_num,9,0,0,1,top-down,0,1,0,0,1,2,1,0,"Intuition, Negative Example"
-choose_num,10,0,0,1,top-down,0,1,1,0,0,2,1,0,"Clause Comparison, Negative Example"
+choose_num,9,0,0,1,as-needed,0,1,0,0,1,2,1,0,"Intuition, Negative Example"
+choose_num,10,0,0,1,top-down,0,1,1,1,0,3,1,1,"Logic Walkthrough, Clause Comparison, Negative Example"
 any_int,1,0,0,1,top-down,0,0,1,0,0,1,0,0,Clause Comparison
 any_int,2,0,0,1,?,0,0,1,0,0,1,0,0,Clause Comparison
 any_int,3,0,0,1,as-needed,0,0,1,1,0,2,1,0,"Logic Walkthrough, Clause Comparison"
@@ -27,27 +27,25 @@ any_int,5,0,0,1,top-down,0,0,1,0,0,1,0,0,Clause Comparison
 any_int,6,1,1,1,as-needed,0,0,1,0,0,1,0,0,Clause Comparison
 any_int,7,0,0,1,bottom-up,0,0,1,0,0,1,0,0,Clause Comparison
 any_int,8,0,0,1,top-down,0,0,1,0,0,1,0,0,Clause Comparison
-any_int,9,1,1,1,top-down,1,0,1,0,0,2,1,0,"Clause Comparison, Positive Example, Clause Comparison"
+any_int,9,1,1,1,top-down,0,0,1,0,0,1,0,0,"Clause Comparison, Clause Comparison"
 any_int,10,1,1,1,top-down,0,0,1,1,0,2,1,0,"Clause Comparison, Logic Walkthrough"
 common,1,0,0,1,top-down,0,1,0,1,0,2,1,0,"Logic Walkthrough, Negative Example"
 common,2,1,1,1,as-needed,1,0,1,0,0,2,1,0,"Clause Comparison, Positive Example"
 common,3,0,1,0,top-down,0,0,0,1,1,2,1,0,"Logic Walkthrough, Intuition"
-common,4,1,1,1,top-down,1,0,1,0,0,2,1,0,"Clause Comparison, Positive Example"
+common,4,1,1,1,top-down,1,0,1,1,0,3,1,1,"Logic Walkthrough, Clause Comparison, Logic Walkthrough, Positive Example"
 common,5,1,1,1,top-down,0,0,1,1,0,2,1,0,"Logic Walkthrough, Clause Comparison"
 common,6,0,1,0,as-needed,0,0,0,1,1,2,1,0,"Intuition, Logic Walkthrough"
 common,7,1,0,0,as-needed,0,1,1,0,0,2,1,0,"Clause Comparison, Negative Example, Clause Comparison"
-common,8,1,0,0,bottom-up,1,1,1,1,1,5,1,1,"Negative Example, Logic Walkthrough, Positive Example, Clause Comparison, Negative Example, Intuition, Logic Walkthrough"
+common,8,1,0,0,bottom-up,1,1,1,1,0,4,1,1,"Negative Example, Logic Walkthrough, Positive Example, Clause Comparison, Logic Walkthrough, Negative Example, Logic Walkthrough"
 common,9,0,1,0,top-down,0,0,1,1,1,3,1,1,"Clause Comparison, Intuition, Logic Walkthrough"
 common,10,0,0,1,top-down,0,1,0,1,0,2,1,0,"Logic Walkthrough, Negative Example"
 match_parens,1,1,0,0,top-down,0,1,1,1,0,3,1,1,"Logic Walkthrough, Negative Example, Clause Comparison, Negative Example"
 match_parens,2,0,0,1,?,0,0,1,0,0,1,0,0,Clause Comparison
 match_parens,3,0,0,1,as-needed,0,1,1,1,0,3,1,1,"Clause Comparison, Logic Walkthrough, Negative Example"
-match_parens,4,0,0,1,top-down,0,1,1,1,0,3,1,1,"Logic Walkthrough, Negative Example, Logic Walkthrough"
+match_parens,4,0,0,1,top-down,0,1,1,1,0,3,1,1,"Negative Example, Logic Walkthrough, Clause Comparison"
 match_parens,5,1,1,1,top-down,0,0,0,0,1,1,0,0,Intuition
 match_parens,6,1,0,0,as-needed,0,0,1,0,1,2,1,0,"Intuition, Clause Comparison"
 match_parens,7,0,1,0,bottom-up,0,0,1,1,1,3,1,1,"Intuition, Clause Comparison, Intuition, Logic Walkthrough, Intuition"
-match_parens,8,0,0,1,top-down,1,1,1,1,0,4,1,1,"Positive Example, Logic Walkthrough, Clause Comparison Negative Example, Logic Walkthrough"
-match_parens,9,0,0,1,top-down,0,1,1,1,0,3,1,1,"Clause Comparison, Logic Walkthrough, Negative Example"
+match_parens,8,0,0,1,top-down,1,1,1,1,1,5,1,1,"Positive Example, Logic Walkthrough, Clause Comparison, Negative Example, Clause Comparison, Intuition"
+match_parens,9,0,0,1,as-needed,0,1,1,1,1,4,1,1,"Clause Comparison, Logic Walkthrough, Intuition, Negative Example"
 match_parens,10,1,0,0,top-down,0,1,0,0,1,2,1,0,"Intuition, Negative Example"
-,,,21,,,11,18,,,,29,33,12,
-,,,,,,,,,,,,17,21,
